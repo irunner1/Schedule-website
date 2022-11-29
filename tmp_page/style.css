@@ -13,7 +13,6 @@
     --modifier2_light: #E5F9FD;
     --modifier3_light: #FEF9EF;
     --font-family: consolas;
-
 }
 
 /* main css */
@@ -25,23 +24,110 @@
 }
 
 html, body {
-    place-items: center;
-    font-family: var(--font-family);
-    background: linear-gradient(to right, #9796f0, #fbc7d4);
-    overflow: hidden;
+  place-items: center;
+  font-family: var(--font-family);
+  background: linear-gradient(to right, #cdcce0, #e9dee1);
+  overflow: hidden;
 }
+/* Вся страница */
+
+.main {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 5% 0px 0px;
+}
+
+/* Левая часть страницы */
+.upcoming {
+  width: 50%;
+}
+.square {
+  background-color: white;
+  width: 500px;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  left: 20%;
+  top: 10%;
+}
+
+
+
+
+/* Правая часть страницы */
 .contianer {
     width: max-content;
     height: max-content;
     position: relative;
     display: flex;
-    padding: 2% 0px 0px 0px;
-    justify-content: center;
+    flex-direction: column;
+    padding: 2% 5% 0px 0px;
+    justify-content: end;
     top: 10%;
     right: 0%;
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
 }
+
+.calendar-title {
+    font-size: 20px;
+    font-family: var(--font-family);
+    height: 50px;
+    padding: 20px;
+    color: var(--text);
+    font-weight: bold;
+}
+
+/* Время над календарем */
+.date-time-format {
+  font-family: Dubai Light, Century Gothic;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.day-text-format {
+  font-family: Microsoft JhengHei UI;
+  font-size: 1.4rem;
+  padding-right: 5%;
+  border-right: 3px solid #9796f0;
+  position: relative;
+  left: 1rem;
+  height: 50px;
+}
+.date-time-value {
+  display: block;
+  height: max-content;
+  width: max-content;
+  position: relative;
+  right: 1rem;
+  top: -18px;
+  text-align: center;
+}
+.time-format {
+  font-size: 1.5rem;
+}
+/* .time-format.hideTime {
+  animation: hidetime 1.5s forwards;
+}
+.day-text-format.hidetime {
+  animation: hidetime 1.5s forwards;
+}
+.date-format.hideTime {
+  animation: hidetime 1.5s forwards;
+}
+.day-text-format.showtime{
+  animation: showtime 1s forwards;
+}
+.time-format.showtime {
+  animation: showtime 1s forwards;
+}
+.date-format.showtime {
+  animation: showtime 1s forwards;
+} */
+
 .calendar {
     height: 810px;
     width: max-content;
@@ -52,7 +138,6 @@ html, body {
     box-shadow: var(--shadow);
 }
 .calendar-header {
-    /* background: var(--modifier1); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,7 +149,48 @@ html, body {
     border: 2px solid var(--modifier1_light);
     border-radius: 15px;
 }
-/* шапка календаря */
+
+/* Месяц и год над календарем */
+.month-picker {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: 20px;
+}
+.month-picker:hover {
+  color: var(--modifier1);
+}
+.year {
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: 20px;
+}
+.year-picker {
+  display: flex;
+  align-items: center;
+}
+.year-change {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  margin: 0px 10px;
+  cursor: pointer;
+  border: 2px solid var(--modifier1_light);
+  color: var(--modifier1);
+}
+.year-change:hover {
+  transition:all .2s ease-in-out ;
+  transform: scale(1.12);
+}
+/* .year-change:hover pre {
+  color: var(--bg-body);
+} */
+
+/* Шапка календаря */
 .calendar-week-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -82,16 +208,18 @@ html, body {
 .calendar-week-days div {
     display: grid;
     place-items: center;
-    color: var(--bg-second);
     height: 50px;
 }
+
 /* тело календаря */
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     color: var(--color-txt);
+    z-index: 1;
 }
 .calendar-days div {
+    z-index: 1;
     width: 100px;
     height: 100px;
     display: flex;
@@ -102,6 +230,8 @@ html, body {
     cursor: pointer;
     animation: to-top 1s forwards;
     border: 1px solid var(--modifier1_light);
+    color: var(--light_text);
+    font-weight: bold;
 }
 .calendar-days div span {
     position: absolute;
@@ -115,38 +245,7 @@ html, body {
     color: var(--modifier1);
     border: 1px solid var(--modifier1);
 }
-  .month-picker {
-    padding: 5px 10px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .month-picker:hover {
-    background-color: var(--color-hover);
-  }
-  .month-picker:hover {
-    color: var(--color-txt);
-  }
-  .year-picker {
-    display: flex;
-    align-items: center;
-  }
-.year-change {
-    height: 30px;
-    width: 30px;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    margin: 0px 10px;
-    cursor: pointer;
-}
-.year-change:hover {
-    background-color: var(--light-btn);
-    transition:all .2s ease-in-out ;
-    transform: scale(1.12);
-}
-.year-change:hover pre {
-    color: var(--bg-body);
-}
+
 .calendar-footer {
     padding: 10px;
     display: flex;
@@ -154,131 +253,76 @@ html, body {
     align-items: center;
 }
 #year:hover{
-    cursor: pointer;
     transform: scale(1.2);
     transition: all 0.2 ease-in-out;
 }
 
-  .month-list {
+.month-list {
     position: relative;
     left: 0;
-    top: -50px;
+    top: -150px;
     background-color: #ebebeb;
-    color: var(--light-text);
+    color: var(--light_text);
+    background-color: var(--modifier1_light);
     display: grid;
+    z-index: 5;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
     border-radius: 20px;
-  }
-  .month-list > div {
+}
+.month-list > div {
     display: grid;
     place-content: center;
     margin: 5px 10px;
     transition: all 0.2s ease-in-out;
-  }
-  .month-list > div > div {
+}
+.month-list > div > div {
     border-radius: 15px;
     padding: 10px;
     cursor: pointer;
-  }
-  .month-list > div > div:hover {
+}
+.month-list > div > div:hover {
     background-color:var(--light-btn);
     color: var(--dark-text);
     transform: scale(0.9);
     transition: all 0.2s ease-in-out;
-  }
-  .month-list.show {
+}
+.month-list.show {
     visibility: visible;
     pointer-events: visible;
     transition: 0.6s ease-in-out;
     animation: to-left .71s forwards;
-  }
-  .month-list.hideonce{
+}
+.month-list.hideonce{
     visibility: hidden;
-  }
-  .month-list.hide {
+}
+.month-list.hide {
     animation: to-right 1s forwards;
     visibility: none;
     pointer-events: none;
-  }
-  .date-time-format {
-    width: max-content;
-    height: max-content;
-    font-family: Dubai Light, Century Gothic;
-    position: relative;
-    display: inline;
-    top: 0px;
-    left: 10px;
-    justify-content: center;
-  }
-  .day-text-format {
-    font-family: Microsoft JhengHei UI;
-    font-size: 1.4rem;
-    padding-right: 5%;
-    border-right: 3px solid #9796f0;
-    position: absolute;
-    left: -1rem;
-  }
-  .date-time-value {
-    display: block;
-    height: max-content;
-    width: max-content;
-    position: relative;
-    left: 40%;
-    top: -18px;
-    text-align: center;
-  }
-  .time-format {
-    font-size: 1.5rem;
-  }
-  .time-format.hideTime {
-    animation: hidetime 1.5s forwards;
-  }
-  .day-text-format.hidetime {
-    animation: hidetime 1.5s forwards;
-  }
-  .date-format.hideTime {
-    animation: hidetime 1.5s forwards;
-  }
-  .day-text-format.showtime{
-    animation: showtime 1s forwards;
-  }
-  .time-format.showtime {
-    animation: showtime 1s forwards;
-  }
-  .date-format.showtime {
-    animation: showtime 1s forwards;
-  }
-  /* @keyframes to-top {
-    0% {
-      transform: translateY(0);
-      opacity: 0;
-    }
-    100% {
-      transform: translateY(100%);
-      opacity: 1;
-    }
-  }
+}
+
   @keyframes to-left {
-    0% {
-      transform: translatex(230%);
+    10% {
+      transform: translatey(0);
       opacity: 1;
     }
     100% {
-      transform: translatex(0);
+      transform: translatey(-200%);
       opacity: 1;
     }
   }
   @keyframes to-right {
-    10% {
-      transform: translatex(0);
+    0% {
+      transform: translatey(-200%);
       opacity: 1;
     }
     100% {
-      transform: translatex(-150%);
+      transform: translatey(300%);
       opacity: 1;
     }
   }
+    
   @keyframes showtime {
     0% {
       transform: translatex(250%);
@@ -304,4 +348,4 @@ html, body {
   
       margin: 5px 0px;
     }
-  } */
+  } 

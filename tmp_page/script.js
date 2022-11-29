@@ -9,18 +9,18 @@ const getFebDays = (year) => {
 };
 let calendar = document.querySelector('.calendar');
 const month_names = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
 ];
 let month_picker = document.querySelector('#month-picker');
 const dayTextformat = document.querySelector('.day-text-format');
@@ -63,9 +63,8 @@ const generateCalendar = (month, year) => {
     calendar_header_year.innerHTML = year;
     let first_day = new Date(year, month);
 
-    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
+    for (let i = 1; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
       let day = document.createElement('div');
-    //   day.classList.add("day");
       if (i >= first_day.getDay()) {
         day.innerHTML = i - first_day.getDay() + 1;
         if (i - first_day.getDay() + 1 === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
@@ -86,12 +85,6 @@ month_names.forEach((e, index) => {
         currentMonth.value = index;
         generateCalendar(currentMonth.value, currentYear.value);
         month_list.classList.replace('show', 'hide');
-        dayTextformat.classList.remove('hideTime');
-        dayTextformat.classList.add('showtime');
-        timeformat.classList.remove('hideTime');
-        timeformat.classList.add('showtime');
-        dateformat.classList.remove('hideTime');
-        dateformat.classList.add('showtime');
     };
 });
   
@@ -123,7 +116,7 @@ const showCurrentDateOption = {
     weekday: 'long',
 };
 const currentDateformat = new Intl.DateTimeFormat(
-    'en-US',
+    'ru-ru',
     showCurrentDateOption
 ).format(currshowDate);
 todayShowDate.textContent = currentDateformat;
@@ -134,7 +127,7 @@ setInterval(() => {
       minute: 'numeric',
       second: 'numeric',
     };
-    const formatTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
+    const formatTimer = new Intl.DateTimeFormat('ru-ru', option).format(timer);
     let time = `${`${timer.getHours()}`.padStart(
         2,
         '0'
