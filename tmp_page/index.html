@@ -1,26 +1,14 @@
-<?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
-?>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Главная страница</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header class="header">
-        <p class="text"></p>
-        <nav class="header_menu">
-            <ul class="nav_links">
-                <li><a class="nav_link" href="index.html">Home</a> </li>
-                <li><a class="nav_link" href="catalogue.php">Store</a> </li>
-                <li><a class="nav_link" href="admin.php">Admin</a></li>
-                <li><a class="nav_link" href="session_status.php">Session</a></li>
-                <li><a class="nav_link" href="/pdf/show_pdf.php">PDF</a></li>
-            </ul>
-        </nav>
-        </nav>
-    </header>
-    <main>
     <div class="contianer">
         <div class="calendar">
         <div class="date-time-format">
@@ -63,6 +51,5 @@
         <div class="month-list"></div></div>
         
     </div>
-    </main>
 </body>
 </html>
