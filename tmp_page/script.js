@@ -24,19 +24,11 @@ const month_names = [
 ];
 let month_picker = document.querySelector('#month-picker');
 const dayTextformat = document.querySelector('.day-text-format');
-const timeformat = document.querySelector('.time-format');
-const dateformat = document.querySelector('.date-format');
 
 month_picker.onclick = () => {
     month_list.classList.remove('hideonce');
     month_list.classList.remove('hide');
     month_list.classList.add('show');
-    dayTextformat.classList.remove('showtime');
-    dayTextformat.classList.add('hidetime');
-    timeformat.classList.remove('showtime');
-    timeformat.classList.add('hideTime');
-    dateformat.classList.remove('showtime');
-    dateformat.classList.add('hideTime');
 };
   
 const generateCalendar = (month, year) => {
