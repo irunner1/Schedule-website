@@ -20,7 +20,7 @@
         </nav>
         </nav>
     </header>
-    <main>
+    <main> 
     <div class="contianer">
         <div class="calendar">
         <div class="date-time-format">

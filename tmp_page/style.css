@@ -27,7 +27,6 @@ html, body {
   place-items: center;
   font-family: var(--font-family);
   background: linear-gradient(to right, #cdcce0, #e9dee1);
-  overflow: hidden;
 }
 /* Вся страница */
 
@@ -35,30 +34,59 @@ html, body {
   display: flex;
   flex-direction: row;
   padding: 2% 5% 0px 0px;
-  margin-left: 160px;
+  margin-left: 60px;
 }
 
 /* Левая часть страницы */
 .upcoming {
   width: 50%;
+  /* padding: 10% 20% 0 0; */
 }
+
+.upcoming_title {
+  position: relative;
+  left: 15%;
+  top: 10%;
+  font-size: 20px;
+}
+
 .square {
   background-color: white;
-  width: 500px;
+  width: 20rem;
   height: 100px;
   padding: 10px;
   margin: 10px;
   border-radius: 5px;
   position: relative;
-  left: 20%;
+  left: 10%;
   top: 10%;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.marker {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+.violet {
+  background-color: var(--modifier1);
+}
+.yellow {
+  background-color: var(--modifier2);
+}
+.blue {
+  background-color: var(--modifier3);
+}
 
 /* The sidebar menu */
 .sidenav {
   height: 100%;
-  width: 160px;
+  width: 60px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -66,17 +94,19 @@ html, body {
   background-color: transparent;
   overflow-x: hidden;
   padding-top: 20px;
+  padding: 20px;
 }
 
-.sidenav a {
+.sidenav i {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: var(--modifier1);
+  font-weight: 100;
   display: block;
 }
 
-.sidenav a:hover {
+.sidenav i:hover {
   color: #f1f1f1;
 }
 
@@ -87,9 +117,9 @@ html, body {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 2% 5% 0px 0px;
+    padding: 0 5% 0px 0px;
     justify-content: end;
-    top: 10%;
+    top: 0;
     right: 0%;
     /* width: 100%; */
     height: 100%;
@@ -98,8 +128,7 @@ html, body {
 .calendar-title {
     font-size: 20px;
     font-family: var(--font-family);
-    height: 50px;
-    padding: 20px;
+    padding: 0 0 10px 20px;
     color: var(--text);
     font-weight: bold;
 }
@@ -119,7 +148,7 @@ html, body {
   border-right: 3px solid #9796f0;
   position: relative;
   left: 1rem;
-  height: 50px;
+  height: 30px;
 }
 .date-time-value {
   display: block;
@@ -133,27 +162,9 @@ html, body {
 .time-format {
   font-size: 1.5rem;
 }
-/* .time-format.hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.day-text-format.hidetime {
-  animation: hidetime 1.5s forwards;
-}
-.date-format.hideTime {
-  animation: hidetime 1.5s forwards;
-}
-.day-text-format.showtime{
-  animation: showtime 1s forwards;
-}
-.time-format.showtime {
-  animation: showtime 1s forwards;
-}
-.date-format.showtime {
-  animation: showtime 1s forwards;
-} */
 
 .calendar {
-    height: 810px;
+    height: 750px;
     width: max-content;
     background-color: white;
     border-radius: 25px;
@@ -210,9 +221,6 @@ html, body {
   transition:all .2s ease-in-out ;
   transform: scale(1.12);
 }
-/* .year-change:hover pre {
-  color: var(--bg-body);
-} */
 
 /* Шапка календаря */
 .calendar-week-days {
@@ -306,8 +314,7 @@ html, body {
     cursor: pointer;
 }
 .month-list > div > div:hover {
-    background-color:var(--light-btn);
-    color: var(--dark-text);
+    color: var(--text);
     transform: scale(0.9);
     transition: all 0.2s ease-in-out;
 }
@@ -326,7 +333,7 @@ html, body {
     pointer-events: none;
 }
 
-  @keyframes to-left {
+@keyframes to-left {
     10% {
       transform: translatey(0);
       opacity: 1;
@@ -335,8 +342,8 @@ html, body {
       transform: translatey(-200%);
       opacity: 1;
     }
-  }
-  @keyframes to-right {
+}
+@keyframes to-right {
     0% {
       transform: translatey(-200%);
       opacity: 1;
@@ -345,9 +352,9 @@ html, body {
       transform: translatey(300%);
       opacity: 1;
     }
-  }
+}
     
-  @keyframes showtime {
+@keyframes showtime {
     0% {
       transform: translatex(250%);
       opacity: 1;
@@ -356,8 +363,8 @@ html, body {
       transform: translatex(0%);
       opacity: 1;
     }
-  }
-  @keyframes hidetime {
+}
+ @keyframes hidetime {
     0% {
       transform: translatex(0%);
       opacity: 1;
@@ -366,10 +373,10 @@ html, body {
       transform: translatex(-370%);
       opacity: 1;
     }
-  }
-  @media (max-width:375px) {
+}
+@media (max-width:375px) {
     .month-list>div{
   
       margin: 5px 0px;
-    }
-  } 
+  }
+} 
