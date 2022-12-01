@@ -21,6 +21,15 @@ CREATE TABLE IF NOT EXISTS goods (
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
+CREATE TABLE IF NOT EXIST user_table (
+    ID INT(10) NOT NULL AUTO_INCREMENT,
+    task_time TIME NULL,
+    task_name VARCHAR(15) NOT NULL,
+    task_desc VARCHAR(25) NULL,
+    marker VARCHAR(5) NULL,
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
+
+
 INSERT INTO users (name, password)
 VALUES (
         'admin',
