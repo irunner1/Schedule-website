@@ -50,6 +50,13 @@ html, body {
   font-size: 20px;
 }
 
+.upcoming-empty {
+  position: relative;
+  left: 15%;
+  top: 15%;
+  font-size: 17px;
+}
+
 .square {
   background-color: white;
   width: 20rem;
@@ -73,6 +80,7 @@ html, body {
 .square-title {
   padding-left: 10px;
   font-size: 20px;
+  font-weight: normal;
   color: var(--text);
 }
 
@@ -149,6 +157,7 @@ html, body {
 }
 
 .calendar-title {
+    width: 50px;
     font-size: 20px;
     font-family: var(--font-family);
     padding: 0 0 10px 20px;
@@ -397,9 +406,33 @@ html, body {
       opacity: 1;
     }
 }
+
 @media (max-width:375px) {
     .month-list>div{
-  
       margin: 5px 0px;
   }
-} 
+}
+@media (max-width:1070px) {
+    .main{
+      flex-direction: column;
+      padding-right: 0;
+    }
+    .calendar {
+      width: 100%;
+    }
+    .calendar-days div {
+      width: 6.8em;
+      height: 6rem;
+    }
+    .contianer {
+      left: 2%;
+      right: 0;
+      width: 100%;
+    }
+    .square {
+      left: 2%;
+    }
+    .upcoming-title {
+      left: 40px;
+    }
+}

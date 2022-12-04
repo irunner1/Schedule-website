@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS goods (
 
 CREATE TABLE IF NOT EXISTS user_table (
     ID INT(10) NOT NULL AUTO_INCREMENT,
-    task_time TIME NULL,
+    task_time DATETIME NULL,
     task_name VARCHAR(15) NOT NULL,
     task_desc VARCHAR(25) NULL,
     marker VARCHAR(7) NULL,
@@ -52,6 +52,6 @@ INSERT INTO goods (title, description, cost) VALUES
 
 
 INSERT INTO user_table (task_name, task_desc, task_time, marker) values
-('Сделать что то', 'дело 1', '12:00:00', 'red'),
-('Сделать что то', 'дело 2', '12:00:00', 'blue'),
-('Сделать что то', 'дело 3', '12:00:00', 'yellow');
+('Сделать что то', 'дело 1', '2022-12-04 12:00:00', 'red'),
+('Сделать что то', 'дело 2', '2022-12-04 12:00:00', 'blue'),
+('Сделать что то', 'дело 3', '2022-12-04 12:00:00', 'yellow');

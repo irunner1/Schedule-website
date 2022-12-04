@@ -57,61 +57,60 @@
         <div class="upcoming">
             <div class="upcoming-title">Предстоящие события</div>
             <?php 
-                if ($result->num_rows > 0) foreach ($result as $good) {
-                    echo '
-                        <div class="square">
-                            <div class="row">
-                                <div class="marker">' . $good['marker'] . '</div>
-                                <div class="square-time">' . $good['task_time'] . '</div>
+                if ($result->num_rows > 0) {
+                    foreach ($result as $good) {
+                        echo '<div class="square">
+                                <div class="row">
+                                    <div class="marker '. $good['marker'] . '"></div>
+                                    <div class="square-time">'.
+                                        mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
+                                    .'</div>
+                                </div>
+                                <div class="square-title">' . $good['task_name'] . '</div>
+                                <div class="square-describtion">' . $good['task_desc'] . '</div>
                             </div>
-                            <div class="square-title">' . $good['task_name'] . '</div>
-                            <div class="square-describtion">' . $good['task_desc'] . '</div>
-                        </div>
-                    ';
+                        ';
                     }
-                else echo ''; 
-            ?>
-        
-            
+                }
+                else echo '<div class="upcoming-empty"> Предстоящих событий нет </div>'; 
+            ?>  
         </div>
-        <div class="contianer">
-            <div class="calendar-title">
-                Календарь
-            </div>
 
+        <div class="contianer">
+            <div class="calendar-title"> Календарь </div>
             <div class="calendar">
                 <div class="date-time-format">
-                    <div class="day-text-format">TODAY</div>
+                    <div class="day-text-format"> TODAY </div>
                     <div class="date-time-value">
-                        <div class="time-format">00:00:00</div>
-                        <div class="date-format">23 - november - 2022</div>
+                        <div class="time-format"> 00:00:00 </div>
+                        <div class="date-format"> 23 - november - 2022 </div>
                     </div>
                 </div>
                 
                 <div class="calendar-header">
                     <div>
                         <span class="month-picker" id="month-picker"> November </span>
-                        <span id="year" class="year">2020</span>
+                        <span id="year" class="year"> 2020 </span>
                     </div>
                     <div class="year-picker" id="year-picker">
                         <span class="year-change" id="pre-year">
-                            <pre><</pre>
+                            <pre> < </pre>
                         </span>
                         <span class="year-change" id="next-year">
-                            <pre>></pre>
+                            <pre> > </pre>
                         </span>
                     </div>
                 </div>
     
                 <div class="calendar-body">
                     <div class="calendar-week-days">
-                        <div>Пн</div>
-                        <div>Вт</div>
-                        <div>Ср</div>
-                        <div>Чт</div>
-                        <div>Пт</div>
-                        <div>Сб</div>
-                        <div>Вс</div>
+                        <div> Пн </div>
+                        <div> Вт </div>
+                        <div> Ср </div>
+                        <div> Чт </div>
+                        <div> Пт </div>
+                        <div> Сб </div>
+                        <div> Вс </div>
                     </div>
                     <div class="calendar-days">
                     </div>
