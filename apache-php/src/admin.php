@@ -7,20 +7,49 @@
     <title>Панель админа</title>
 </head>
 <body>
-    <header class="header">
-        <p class="text">Строительный магазин</p>
-        <nav class="header_menu">
-            <ul class="nav_links">
-                <li><a class="nav_link" href="index.html">Home</a> </li>
-                <li><a class="nav_link" href="catalogue.php">Store</a> </li>
-                <li><a class="nav_link" href="admin.php">Admin</a></li>
-                <li><a class="nav_link" href="session_status.php">Session</a></li>
-                <li><a class="nav_link" href="pdf/showPDF.php">PDF</a></li>
-            </ul>
-        </nav>
-        </nav>
-    </header>
-    <div>
+    <div class="sidenav">
+        <div class="top">
+
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
+                </span>
+            </a> 
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
+                </span>
+            </a> 
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-regular fa-magnifying-glass fa-stack-1x fa-inverse"></i>
+                </span>
+            </a> 
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
+                    <i class="fa-regular fa-comment fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </div>
+        <div class="bottom">
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-regular fa-gear fa-stack-1x fa-inverse"></i>
+                </span>
+            </a> 
+            <a href="index.php">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </div>
+    </div>
         <div class="title">
             <p class="title_text">Список пользователей</p>
         </div>

@@ -21,12 +21,13 @@ CREATE TABLE IF NOT EXISTS goods (
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE IF NOT EXIST user_table (
+CREATE TABLE IF NOT EXISTS user_table (
     ID INT(10) NOT NULL AUTO_INCREMENT,
     task_time TIME NULL,
     task_name VARCHAR(15) NOT NULL,
     task_desc VARCHAR(25) NULL,
-    marker VARCHAR(5) NULL,
+    marker VARCHAR(7) NULL,
+    PRIMARY KEY (ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 
@@ -44,7 +45,13 @@ VALUES (
         '$apr1$5i1mg3ur$obDXxC/JHQyptMKFiXZDO1' -- password
     );
 
-INSERT INTO goods (title, description, cost)
-VALUES ('Гвозди', 'Гвозди строительные 4x100 мм без покрытия 1 кг', 110),
-    ('Молоток', 'Слесарный молоток VIRA RAGE 600 г 903006', 549),
-    ('Ключ', 'Рожковый ключ 17x19мм Дело Техники 510197', 187);
+INSERT INTO goods (title, description, cost) VALUES 
+('Гвозди', 'Гвозди строительные 4x100 мм без покрытия 1 кг', 110),
+('Молоток', 'Слесарный молоток VIRA RAGE 600 г 903006', 549),
+('Ключ', 'Рожковый ключ 17x19мм Дело Техники 510197', 187);
+
+
+INSERT INTO user_table (task_name, task_desc, task_time, marker) values
+('Сделать что то', 'дело 1', '12:00:00', 'red'),
+('Сделать что то', 'дело 2', '12:00:00', 'blue'),
+('Сделать что то', 'дело 3', '12:00:00', 'yellow');

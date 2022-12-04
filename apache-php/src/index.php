@@ -6,63 +6,127 @@
 <head>
     <title>Главная страница</title>
 </head>
-<body>
-    <header class="header">
-        <p class="text"></p>
-        <nav class="header_menu">
-            <ul class="nav_links">
-                <li><a class="nav_link" href="index.html">Home</a> </li>
-                <li><a class="nav_link" href="catalogue.php">Store</a> </li>
-                <li><a class="nav_link" href="admin.php">Admin</a></li>
-                <li><a class="nav_link" href="session_status.php">Session</a></li>
-                <li><a class="nav_link" href="/pdf/show_pdf.php">PDF</a></li>
-            </ul>
-        </nav>
-        </nav>
-    </header>
-    <main> 
-    <div class="contianer">
-        <div class="calendar">
-        <div class="date-time-format">
-            <div class="day-text-format">TODAY</div>
-            <div class="date-time-value">
-                <div class="time-format">00:00:00</div>
-                <div class="date-format">23 - november - 2022</div>
+<body>   
+    <div class="main">
+        <div class="sidenav">
+            <div class="top">
+
+                <a href="#">
+                    <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
+                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <a href="index.php">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
+                    </span>
+                </a>
+                <a href="catalogue.php">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
+                <a href="admin.php">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
+                        <i class="fa-solid fa-comment fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>                
             </div>
-        </div>
-        
-        <div class="calendar-header">
-            <span class="month-picker" id="month-picker"> May </span>
-            <div class="year-picker" id="year-picker">
-                <span class="year-change" id="pre-year">
-                    <pre><</pre>
+            <div class="bottom">
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                 </span>
-            <span id="year">2020</span>
-            <span class="year-change" id="next-year">
-                <pre>></pre>
-            </span>
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+                </span>
             </div>
         </div>
 
-        <div class="calendar-body">
+        <?php
+            require_once '_helper.php';
+            $mysqli = openmysqli();
+            $mysqli->set_charset('utf8mb4');
+            $result = $mysqli->query("select * from user_table");
+        ?>
+        <div class="upcoming">
+            <div class="upcoming-title">Предстоящие события</div>
+            <?php 
+                if ($result->num_rows > 0) foreach ($result as $good) {
+                    echo '
+                        <div class="square">
+                            <div class="row">
+                                <div class="marker">' . $good['marker'] . '</div>
+                                <div class="square-time">' . $good['task_time'] . '</div>
+                            </div>
+                            <div class="square-title">' . $good['task_name'] . '</div>
+                            <div class="square-describtion">' . $good['task_desc'] . '</div>
+                        </div>
+                    ';
+                    }
+                else echo ''; 
+            ?>
+        
             
-            <div class="calendar-week-days">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
+        </div>
+        <div class="contianer">
+            <div class="calendar-title">
+                Календарь
             </div>
-            <div class="calendar-days">
+
+            <div class="calendar">
+                <div class="date-time-format">
+                    <div class="day-text-format">TODAY</div>
+                    <div class="date-time-value">
+                        <div class="time-format">00:00:00</div>
+                        <div class="date-format">23 - november - 2022</div>
+                    </div>
+                </div>
+                
+                <div class="calendar-header">
+                    <div>
+                        <span class="month-picker" id="month-picker"> November </span>
+                        <span id="year" class="year">2020</span>
+                    </div>
+                    <div class="year-picker" id="year-picker">
+                        <span class="year-change" id="pre-year">
+                            <pre><</pre>
+                        </span>
+                        <span class="year-change" id="next-year">
+                            <pre>></pre>
+                        </span>
+                    </div>
+                </div>
+    
+                <div class="calendar-body">
+                    <div class="calendar-week-days">
+                        <div>Пн</div>
+                        <div>Вт</div>
+                        <div>Ср</div>
+                        <div>Чт</div>
+                        <div>Пт</div>
+                        <div>Сб</div>
+                        <div>Вс</div>
+                    </div>
+                    <div class="calendar-days">
+                    </div>
+                </div>
+                <div class="calendar-footer"></div>
+                
+                <div class="month-list"></div>
             </div>
         </div>
-        <div class="calendar-footer"></div>
-        
-        <div class="month-list"></div></div>
-        
     </div>
-    </main>
+    <?php
+        echo '<script defer>';
+        require $_SERVER['DOCUMENT_ROOT'] . "/js/script.js";
+        echo '</script>';
+    ?>
+    <?php $mysqli->close(); ?>
 </body>
 </html>

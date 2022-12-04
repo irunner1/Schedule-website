@@ -1,233 +1,405 @@
+/* variables: colors */
+
+:root {
+    --main: #FEFEFE;
+    --background: #F8F8F8;
+    --schedule_background: #FEFEFE;
+    --text: #3E3D40;
+    --light_text: #6D6C7C;
+    --modifier1: #735BF2;
+    --modifier2: #8EDEF8;
+    --modifier3: #FEDFA4;
+    --modifier1_light: #EEECFA;
+    --modifier2_light: #E5F9FD;
+    --modifier3_light: #FEF9EF;
+    --font-family: consolas;
+}
+
+/* main css */
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-li, a, button {
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 400;
-    font-size: 16px;
-    color: #ebebeb;
-    text-decoration: none;
+html, body {
+  place-items: center;
+  font-family: var(--font-family);
+  background: linear-gradient(to right, #f4f3f8, #e8f5f9, #f5f7f9, #f5f4f7,  #f9f9f9);
+}
+/* Вся страница */
+
+.main {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 5% 0px 0px;
+  margin-left: 60px;
 }
 
-main {
-    height: 100vh;
+/* Левая часть страницы */
+.upcoming {
+  width: 50%;
+  /* padding: 10% 20% 0 0; */
+}
+
+.upcoming-title {
+  position: relative;
+  left: 15%;
+  top: 10%;
+  font-size: 20px;
+}
+
+.square {
+  background-color: white;
+  width: 20rem;
+  height: 100px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  position: relative;
+  left: 10%;
+  top: 10%;
+}
+
+.square-time {
+  position: relative;
+  bottom: .2rem;
+  left: 20px;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.square-title {
+  padding-left: 10px;
+  font-size: 20px;
+  color: var(--text);
+}
+
+.square-describtion {
+  color: var(--light_text);
+  padding: 5px 0 0 10px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  padding: 5px;
+}
+.marker {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+}
+.violet {
+  background-color: var(--modifier1);
+}
+.yellow {
+  background-color: var(--modifier2);
+}
+.blue {
+  background-color: var(--modifier3);
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;
+  width: 65px;
+  position: fixed;
+  z-index: 1;
+  top: -20px;
+  left: 0;
+  background-color: transparent;
+  overflow-x: hidden;
+  padding-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.fa-stack {
+  color: transparent;
+  margin-top: 20px;
+  
+}
+
+.fa-stack:hover {
+  color: var(--modifier1_light);
+}
+
+.fa-inverse {
+  color: #adadad;
+}
+
+/* Правая часть страницы */
+.contianer {
+    width: 30%;
+    height: max-content;
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: #10101E;
+    padding: 0 5% 0px 0px;
+    justify-content: end;
+    top: 0;
+    right: 10%;
+    /* width: 100%; */
+    height: 100%;
 }
 
-.link {
-    text-align: center;
-    display: block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 400;
-    font-size: 15px;
+.calendar-title {
+    font-size: 20px;
+    font-family: var(--font-family);
+    padding: 0 0 10px 20px;
+    color: var(--text);
+    font-weight: bold;
 }
 
-.block {
-    background: #10101E;
-    width: 50%;
-    padding: 15px 10px;
-    border: 3px solid #fff;
-    border-radius: 10px;
-    margin: 50px;
+/* Время над календарем */
+.date-time-format {
+  font-family: Dubai Light, Century Gothic;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-.text {
-    color: #fff;
-    font-size: 28px;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 300;
+.day-text-format {
+  font-family: Microsoft JhengHei UI;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-right: 5%;
+  border-right: 3px solid #9796f0;
+  position: relative;
+  left: 1rem;
+  height: 30px;
+}
+.date-time-value {
+  display: block;
+  height: max-content;
+  width: max-content;
+  position: relative;
+  right: 1rem;
+  top: -18px;
+  text-align: center;
+}
+.time-format {
+  font-size: 1.5rem;
 }
 
-.main_header {
+.calendar {
+    height: 720px;
+    width: max-content;
+    background-color: white;
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 30px 50px 0px 50px;
+    box-shadow: var(--shadow);
+}
+.calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
-    background-color: #24252A;
-    height: 50px;
-}
-
-input {
-    margin: 10px 0;
+    font-weight: 700;
     padding: 10px;
 }
-.inpt {
-    border-radius:10px;
-    border: 1px solid #aaa;
-    transition: .3s border-color;
-}
-.inpt:hover {
-    border: 1px solid #aaa;
+.calendar-body {
+    border: 2px solid var(--modifier1_light);
+    border-radius: 15px;
 }
 
-.btn {
-    appearance: none;
-    background-color: #FAFBFC;
-    border: 1px solid rgba(27, 31, 35, 0.15);
-    border-radius: 6px;
-    box-sizing: border-box;
-    color: #24292E;
+/* Месяц и год над календарем */
+.month-picker {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: 20px;
+}
+.month-picker:hover {
+  color: var(--modifier1);
+}
+.year {
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: 20px;
+}
+.year-picker {
+  display: flex;
+  align-items: center;
+}
+.year-change {
+  height: 30px;
+  width: 30px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  margin: 0px 10px;
+  cursor: pointer;
+  border: 2px solid var(--modifier1_light);
+  color: var(--modifier1);
+}
+.year-change:hover {
+  transition:all .2s ease-in-out ;
+  transform: scale(1.12);
+}
+
+/* Шапка календаря */
+.calendar-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
     cursor: pointer;
-    display: inline-block;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 20px;
-    list-style: none;
-    padding: 6px 16px;
-    position: relative;
-    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    vertical-align: middle;
-    white-space: nowrap;
-    word-wrap: break-word;
+    color: var(--modifier1);
+    border-radius: 10px 10px 0 0;
+    background: var(--modifier1_light);
 }
-
-.btn:hover {
-    color: white;
-    background-color: #0088a9;
+.calendar-week-days div:hover {
+    color:black;
+    transform: scale(1.2);
+    transition: all .2s ease-in-out;
 }
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    background-color: #24252A;
-    height: 100px;
-}
-.header_menu {
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-}
-.nav_links {
-    list-style: none;
-}
-.nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-.nav_links li a {
-    transition: all 0.3s ease 0s;
-}
-.nav_links li a:hover {
-    color: #0088a9;
-}
-
-table {
-    border: 1px solid #eee;
-    table-layout: fixed;
-    width: 70%;
-    margin-bottom: 20px;
-    margin-right: auto;
-    margin-left: auto;
-}
-table th {
-    font-weight: bold;
-    padding: 5px;
-    background: #efefef;
-    border: 1px solid #dddddd;
-}
-table td {
-    padding: 5px 10px;
-    border: 1px solid #eee;
-    text-align: left;
-}
-table tbody tr:nth-child(odd){
-    background: #fff;
-}
-table tbody tr:nth-child(even){
-    background: #F7F7F7;
-}
-
-.btn_link {
-    background: #10101E;
-    width: 20vh;
-    padding: 15px 10px;
-    border: 2px solid #fff;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
-}
-
-.file-input {
-    width: 20%;
-}
-
-.table_link {
-    color: black;
-}
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    padding: 20px 0 20px 0;
-}
-
-.title {
-    width: 30vh;
-    padding: 35px 10px;
-    border-radius: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.title_text {
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 400;
-    font-size: 26px;
-    text-align: center;
-    display: block;
-    color: #10101E;
-}
-
-.file-input {
-    width: 20%;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 100;
-    font-size: 15px;
-}
-
-.file {
-    opacity: 0;
-    width: 0.1px;
-    height: 0.1px;
-    position: absolute;
-    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-    font-weight: 400;
-    font-size: 26px;
-}
-
-.file-input label {
-    display: block;
-    position: relative;
-    width: 200px;
+.calendar-week-days div {
+    display: grid;
+    place-items: center;
     height: 50px;
-    border-radius: 10px;
-    background: white;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform .2s ease-out;
 }
 
-.file-input:hover label{
-    background:#0088a9;
-    color: white;
-    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1)
+/* тело календаря */
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    color: var(--color-txt);
+    z-index: 1;
 }
+.calendar-days div {
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: end;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+    border: 1px solid var(--modifier1_light);
+    color: var(--light_text);
+    font-weight: bold;
+}
+.calendar-days div span {
+    position: absolute;
+}
+.calendar-days div:hover {
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    background-color: #fbc7d4;
+    color: var(--dark-text);
+}
+.calendar-days div.current-date {
+    color: var(--modifier1);
+    border: 1px solid var(--modifier1);
+}
+
+.calendar-footer {
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+#year:hover{
+    transform: scale(1.2);
+    transition: all 0.2 ease-in-out;
+}
+
+.month-list {
+    position: relative;
+    left: 0;
+    top: -150px;
+    background-color: #ebebeb;
+    color: var(--light_text);
+    background-color: var(--modifier1_light);
+    display: grid;
+    z-index: 5;
+    grid-template-columns: repeat(3, auto);
+    gap: 5px;
+    border-radius: 20px;
+}
+.month-list > div {
+    display: grid;
+    place-content: center;
+    margin: 5px 10px;
+    transition: all 0.2s ease-in-out;
+}
+.month-list > div > div {
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+}
+.month-list > div > div:hover {
+    color: var(--text);
+    transform: scale(0.9);
+    transition: all 0.2s ease-in-out;
+}
+.month-list.show {
+    visibility: visible;
+    pointer-events: visible;
+    transition: 0.6s ease-in-out;
+    animation: to-left .71s forwards;
+}
+.month-list.hideonce{
+    visibility: hidden;
+}
+.month-list.hide {
+    animation: to-right 1s forwards;
+    visibility: none;
+    pointer-events: none;
+}
+
+@keyframes to-left {
+    10% {
+      transform: translatey(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translatey(-200%);
+      opacity: 1;
+    }
+}
+@keyframes to-right {
+    0% {
+      transform: translatey(-200%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatey(300%);
+      opacity: 1;
+    }
+}
+    
+@keyframes showtime {
+    0% {
+      transform: translatex(250%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(0%);
+      opacity: 1;
+    }
+}
+ @keyframes hidetime {
+    0% {
+      transform: translatex(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(-370%);
+      opacity: 1;
+    }
+}
+@media (max-width:375px) {
+    .month-list>div{
+  
+      margin: 5px 0px;
+  }
+} 

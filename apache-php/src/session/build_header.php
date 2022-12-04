@@ -4,6 +4,7 @@
     echo '<script> ';
     require $_SERVER['DOCUMENT_ROOT'] . '/session/js_stuff.js';
     echo ' </script>';
+    echo '<script src="https://kit.fontawesome.com/f7526a3a8b.js" crossorigin="anonymous"></script>';
 
     echo '<style> ';
     require $_SERVER['DOCUMENT_ROOT'] . '/css/style.css';
@@ -17,6 +18,6 @@
         require $_SERVER['DOCUMENT_ROOT'] . '/css/lightTheme.css';
     }
     echo ' </style>';
-
-    require $_SERVER['DOCUMENT_ROOT'] . '/session/header.php';
+    
+    // require $_SERVER['DOCUMENT_ROOT'] . '/session/header.php';
 ?>
