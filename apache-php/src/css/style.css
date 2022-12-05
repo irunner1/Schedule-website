@@ -63,7 +63,7 @@ html, body {
   height: 100px;
   padding: 10px;
   margin: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   position: relative;
   left: 10%;
   top: 10%;
@@ -82,6 +82,12 @@ html, body {
   font-size: 20px;
   font-weight: normal;
   color: var(--text);
+}
+
+.square-delete {
+  position: relative;
+  left: 20px;
+  text-decoration: none;
 }
 
 .square-describtion {
@@ -421,7 +427,7 @@ html, body {
       width: 100%;
     }
     .calendar-days div {
-      width: 6.8em;
+      width: 10vh;
       height: 6rem;
     }
     .contianer {

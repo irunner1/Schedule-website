@@ -2,6 +2,14 @@
     require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
 ?>
+<?php //Для удаления записи
+  if (isset($_GET['square'])) {
+    require_once '_helper.php';
+    $mysqli = openmysqli();
+    $mysqli->set_charset('utf8mb4');
+    $result = $mysqli->query("delete from user_table where id = " . $_GET['square']);
+  }
+?>
 <html lang="ru">
 <head>
     <title>Главная страница</title>
@@ -11,7 +19,7 @@
         <div class="sidenav">
             <div class="top">
 
-                <a href="#">
+                <a href="session_status.php">
                     <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
@@ -37,10 +45,12 @@
                 </a>                
             </div>
             <div class="bottom">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
-                </span>
+                <a href="form.php">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
@@ -65,9 +75,11 @@
                                     <div class="square-time">'.
                                         mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
                                     .'</div>
+                                    <a class="square-delete" href="index.php?square='. $good['ID'] . '"> X </a>
                                 </div>
                                 <div class="square-title">' . $good['task_name'] . '</div>
                                 <div class="square-describtion">' . $good['task_desc'] . '</div>
+                                
                             </div>
                         ';
                     }

@@ -27,12 +27,14 @@ CREATE TABLE IF NOT EXISTS user_table (
     task_name VARCHAR(15) NOT NULL,
     task_desc VARCHAR(25) NULL,
     marker VARCHAR(7) NULL,
+    user_num INT(10) NOT NULL,
     PRIMARY KEY (ID)
+    -- FOREIGN KEY (user_num)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 
-INSERT INTO users (name, password)
-VALUES (
+INSERT INTO users (name, password) VALUES
+    (
         'admin',
         '$apr1$uqao79dh$fmZ6ZI/p1XTy0e5.PYSxH0' -- admin1
     ),
@@ -52,6 +54,6 @@ INSERT INTO goods (title, description, cost) VALUES
 
 
 INSERT INTO user_table (task_name, task_desc, task_time, marker) values
-('Сделать что то', 'дело 1', '2022-12-04 12:00:00', 'red'),
-('Сделать что то', 'дело 2', '2022-12-04 12:00:00', 'blue'),
-('Сделать что то', 'дело 3', '2022-12-04 12:00:00', 'yellow');
+('Сделать что то', 'дело 1', '2022-12-04 12:00:00', 'red', 1),
+('Сделать что то', 'дело 2', '2022-12-04 12:00:00', 'blue', 1),
+('Сделать что то', 'дело 3', '2022-12-04 12:00:00', 'yellow', 1);

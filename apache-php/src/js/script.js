@@ -128,5 +128,4 @@ setInterval(() => {
         '0'
     )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`;
     todayShowTime.textContent = formatTimer;
-  }, 1000);
-  
+}, 1000); 
