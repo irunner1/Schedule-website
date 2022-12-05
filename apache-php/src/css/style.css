@@ -69,25 +69,12 @@ html, body {
   top: 10%;
 }
 
-.square-time {
-  position: relative;
-  bottom: .2rem;
-  left: 20px;
-  color: var(--text);
-  font-weight: bold;
-}
-
 .square-title {
   padding-left: 10px;
+  padding-top: 0;
   font-size: 20px;
   font-weight: normal;
   color: var(--text);
-}
-
-.square-delete {
-  position: relative;
-  left: 20px;
-  text-decoration: none;
 }
 
 .square-describtion {
@@ -98,14 +85,31 @@ html, body {
 .row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 5px;
+  height: 1.5rem;
 }
+
 .marker {
   width: 10px;
   height: 10px;
   background-color: red;
   border-radius: 50%;
 }
+
+.square-time {
+  position: relative;
+  bottom: .9rem;
+  left: 2rem;
+  color: var(--text);
+  font-weight: bold;
+}
+
+.square-delete {
+  text-decoration: none;
+  color: var(--light_text)
+}
+
 .violet {
   background-color: var(--modifier1);
 }

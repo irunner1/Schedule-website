@@ -21,7 +21,7 @@
                 <a href="session_status.php">
                     <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
-                        <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
+                        <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>
                 <a href="index.php">
@@ -36,15 +36,15 @@
                         <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>
-                <a href="admin.php">
+                <a href="form.php">
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
-                        <i class="fa-solid fa-comment fa-stack-1x fa-inverse"></i>
+                        <i class="fa-solid fa-circle-plus fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>                
             </div>
             <div class="bottom">
-                <a href="form.php">
+                <a href="admin.php">
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
@@ -70,15 +70,16 @@
                     foreach ($result as $good) {
                         echo '<div class="square">
                                 <div class="row">
-                                    <div class="marker '. $good['marker'] . '"></div>
-                                    <div class="square-time">'.
-                                        mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
-                                    .'</div>
-                                    <a class="square-delete" href="index.php?square='. $good['ID'] . '"> X </a>
+                                    <div>
+                                        <div class="marker '. $good['marker'] . '"></div>
+                                        <div class="square-time">'.
+                                            mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
+                                        .'</div>
+                                    </div>
+                                    <a class="square-delete" href="index.php?square='. $good['ID'] . '"> <i class="fa-solid fa-trash"></i> </a>
                                 </div>
                                 <div class="square-title">' . $good['task_name'] . '</div>
                                 <div class="square-describtion">' . $good['task_desc'] . '</div>
-                                
                             </div>
                         ';
                     }
