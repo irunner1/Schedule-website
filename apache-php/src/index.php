@@ -18,7 +18,6 @@
     <div class="main">
         <div class="sidenav">
             <div class="top">
-
                 <a href="session_status.php">
                     <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>

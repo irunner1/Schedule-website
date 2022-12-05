@@ -53,7 +53,7 @@ INSERT INTO goods (title, description, cost) VALUES
 ('Ключ', 'Рожковый ключ 17x19мм Дело Техники 510197', 187);
 
 
-INSERT INTO user_table (task_name, task_desc, task_time, marker) values
-('Сделать что то', 'дело 1', '2022-12-04 12:00:00', 'red', 1),
-('Сделать что то', 'дело 2', '2022-12-04 12:00:00', 'blue', 1),
+INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values
+('Сделать что то', 'дело 1', '2022-12-05 12:00:00', 'red', 1),
+('Сделать что то', 'дело 2', '2022-12-05 12:00:00', 'blue', 1),
 ('Сделать что то', 'дело 3', '2022-12-04 12:00:00', 'yellow', 1);

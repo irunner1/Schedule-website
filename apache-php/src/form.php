@@ -200,17 +200,17 @@
         </form>
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
-            $task_name = $_REQUEST['task_name'];
-            echo $task_name;
-            $task_desc = $_REQUEST['task_desc'];
-            echo $task_desc;
-            $task_time = $_REQUEST['task_time'];
-            echo $task_time;
-            $color = $_REQUEST['task_marker'];
-            $user_id = 1;
-            if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['task_marker']) && isset($_REQUEST['user_id'])) {
+            if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['task_marker'])) {
+                $task_name = $_REQUEST['task_name'];
+                echo $task_name;
+                $task_desc = $_REQUEST['task_desc'];
+                echo $task_desc;
+                $task_time = $_REQUEST['task_time'];
+                echo $task_time;
+                $color = $_REQUEST['task_marker'];
+                $user_id = 1;
                 $sql = "INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values ('$task_name', '$task_desc', '$task_time', '$color', '$user_id');";
-                $result = mysqli_query($conn, $sql);
+                mysqli_query($conn, $sql) or die(mysqli_error($conn));
             }
         ?>
     </div>
