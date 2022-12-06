@@ -64,14 +64,15 @@
                 <th>Логин</th>
                 <th>Пароль</th>
             </tr>
-            <?php foreach ($users as $user) {
-                echo "
-                    <tr>
-                        <td>{$user['ID']}</td>
-                        <td>{$user['name']}</td>
-                        <td>{$user['password']}</td>
-                    </tr>
-                ";
+            <?php 
+                foreach ($users as $user) {
+                    echo "
+                        <tr>
+                            <td>{$user['ID']}</td>
+                            <td>{$user['name']}</td>
+                            <td>{$user['password']}</td>
+                        </tr>
+                    ";
                 }; 
             ?>
         </table>

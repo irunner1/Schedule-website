@@ -292,7 +292,8 @@ html, body {
     color: var(--color-txt);
     z-index: 1;
 }
-.calendar-days div {
+.calendar-days a {
+    text-decoration: none;
     z-index: 1;
     width: 100px;
     height: 100px;
@@ -307,15 +308,15 @@ html, body {
     color: var(--light_text);
     font-weight: bold;
 }
-.calendar-days div span {
+.calendar-days a span {
     position: absolute;
 }
-.calendar-days div:hover {
+.calendar-days a:hover {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
     background-color: #fbc7d4;
     color: var(--dark-text);
 }
-.calendar-days div.current-date {
+.calendar-days a.current-date {
     color: var(--modifier1);
     border: 1px solid var(--modifier1);
 }

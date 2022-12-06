@@ -61,30 +61,34 @@
             require_once '_helper.php';
             $mysqli = openmysqli();
             $mysqli->set_charset('utf8mb4');
-            $result = $mysqli->query("select * from user_table");
         ?>
         <div class="upcoming">
             <div class="upcoming-title">Предстоящие события</div>
-            <?php 
-                if ($result->num_rows > 0) {
-                    foreach ($result as $good) {
-                        echo '<div class="square">
-                                <div class="row">
-                                    <div>
-                                        <div class="marker '. $good['marker'] . '"></div>
-                                        <div class="square-time">'.
-                                            mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
-                                        .'</div>
+            <?php
+                
+                if (isset($_GET['day'])) {
+                    
+                    $result = $mysqli->query("select * from user_table where date(task_time) = '2022-12-" . $_GET['day'] ."'");
+                    if ($result->num_rows > 0) {
+                        foreach ($result as $good) {
+                            echo '<div class="square">
+                                    <div class="row">
+                                        <div>
+                                            <div class="marker '. $good['marker'] . '"></div>
+                                            <div class="square-time">'.
+                                                mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
+                                            .'</div>
+                                        </div>
+                                        <a class="square-delete" href="index.php?square='. $good['ID'] . '"> <i class="fa-solid fa-trash"></i> </a>
                                     </div>
-                                    <a class="square-delete" href="index.php?square='. $good['ID'] . '"> <i class="fa-solid fa-trash"></i> </a>
+                                    <div class="square-title">' . $good['task_name'] . '</div>
+                                    <div class="square-describtion">' . $good['task_desc'] . '</div>
                                 </div>
-                                <div class="square-title">' . $good['task_name'] . '</div>
-                                <div class="square-describtion">' . $good['task_desc'] . '</div>
-                            </div>
-                        ';
+                            ';
+                        }
                     }
-                }
-                else echo '<div class="upcoming-empty"> Предстоящих событий нет </div>'; 
+                    else echo '<div class="upcoming-empty"> Предстоящих событий нет </div>';
+                } 
             ?>  
         </div>
 
@@ -128,7 +132,20 @@
                     </div>
                 </div>
                 <div class="calendar-footer"></div>
-                
+                <?php
+                //     require_once '_helper.php';
+                //     $mysqli = openmysqli();
+                //     $mysqli->set_charset('utf8mb4');
+                //     $result = $mysqli->query("select * from user_table");
+                //     if ($result->num_rows > 0) {
+                //         foreach ($result as $good) {
+                //             echo '<div class="square">
+                //                     <div class="marker '. $good['marker'] . '"></div>
+                //                 </div>';
+                //         }
+                //     }
+                //     else echo '<div class="upcoming-empty"> Предстоящих событий нет </div>'; 
+                // ?>
                 <div class="month-list"></div>
             </div>
         </div>

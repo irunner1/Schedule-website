@@ -56,9 +56,10 @@ const generateCalendar = (month, year) => {
     let first_day = new Date(year, month);
 
     for (let i = 1; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-      let day = document.createElement('div');
+      let day = document.createElement('a');
       if (i >= first_day.getDay()) {
         day.innerHTML = i - first_day.getDay() + 1;
+        day.href = "index.php?day=" + (i - first_day.getDay() + 1);
         if (i - first_day.getDay() + 1 === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
             day.classList.add('current-date');
         }
