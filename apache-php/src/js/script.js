@@ -59,7 +59,7 @@ const generateCalendar = (month, year) => {
       let day = document.createElement('a');
       if (i >= first_day.getDay()) {
         day.innerHTML = i - first_day.getDay() + 1;
-        day.href = "index.php?day=" + (i - first_day.getDay() + 1);
+        day.href = "index.php?day=" + (i - first_day.getDay() + 1) + "&month=" + (month + 1) + "&year=" + year;
         if (i - first_day.getDay() + 1 === currentDate.getDate() && year === currentDate.getFullYear() && month === currentDate.getMonth()) {
             day.classList.add('current-date');
         }

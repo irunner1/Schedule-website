@@ -45,7 +45,7 @@ html, body {
 
 .upcoming-title {
   position: relative;
-  left: 15%;
+  left: 14%;
   top: 10%;
   font-size: 20px;
 }
@@ -59,7 +59,7 @@ html, body {
 
 .square {
   background-color: white;
-  width: 20rem;
+  width: 55%;
   height: 100px;
   padding: 10px;
   margin: 10px;
@@ -431,8 +431,8 @@ html, body {
     .calendar {
       width: 100%;
     }
-    .calendar-days div {
-      width: 10vh;
+    .calendar-days a {
+      width: 110px;
       height: 6rem;
     }
     .contianer {
@@ -440,8 +440,12 @@ html, body {
       right: 0;
       width: 100%;
     }
+    .upcoming {
+      width: 100%;
+    }
     .square {
       left: 2%;
+      width: 94%;
     }
     .upcoming-title {
       left: 40px;
