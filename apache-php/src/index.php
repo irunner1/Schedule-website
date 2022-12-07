@@ -65,7 +65,7 @@
                 $mysqli->set_charset('utf8mb4');
                 if (isset($_GET['day'])) { //если запрос на конкретный день
                     $result = $mysqli->query("select * from user_table where date(task_time) = '" . $_GET['year'] . "-" . $_GET['month'] . "-" . $_GET['day'] ."'" );
-                    echo '<div class="upcoming-title"> Выбранная дата: ' . $_GET['day'] . " " . $_GET['month'] . " " . $_GET['year'] . '</div>';
+                    echo '<div class="upcoming-subtitle"> Выбранная дата: ' . $_GET['day'] . " " . $_GET['month'] . " " . $_GET['year'] . '</div>';
                 }
                 else { //если запроса нет, тогда просмотр всех событий
                     $result = $mysqli->query("select * from user_table");

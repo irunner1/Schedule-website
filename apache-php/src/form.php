@@ -174,7 +174,7 @@
         </div>
     </div>
     <div class="container">
-        <form id="form" class="form" action="form.php" method="post" enctype="multipart/form-data">
+        <form id="form" class="form" name="form" action="form.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
             <div class="form-control">
                 <label for="task-name" class="margin">Название задачи</label>
                 <input type="text" id="task_name" name="task_name" />
@@ -187,29 +187,109 @@
             </div>
             <div class="form-control">
                 <label for="task_time" class="margin">Время</label>
-                <input type="text" placeholder="2022-12-05 17:00" id="task_time" name="task_time" />
+                <input type="datetime-local" placeholder="2022-12-05 17:00" id="task_time" name="task_time" />
                 <small>Error message</small>
             </div>
             <div class="form-control">
                 <label for="task_marker" class="margin">Цвет маркера</label>
-                <input type="text" placeholder="" id="task_marker" name="task_marker" />
-                <small>Error message</small>
+                <br>
+                <label class="con"> Желтый
+                    <input type="radio" checked="checked" name="radio" id="radio" class="radio" value="Yellow">
+                    <span class="checkmark"></span>
+                </label>
+                <br>
+                <label class="con"> Красный
+                    <input type="radio" name="radio" class="radio" value="Red" id="radio">
+                    <span class="checkmark"></span>
+                </label>
+                <br>
+                <label class="con"> Синий
+                    <input type="radio" name="radio" class="radio" value="Blue" id="radio">
+                    <span class="checkmark"></span>
+                </label>
             </div>
-
             <p><button type="submit" id="submit">Отправить</button></p>
         </form>
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
-            if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['task_marker'])) {
+            if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['radio'])) {
                 $task_name = $_REQUEST['task_name'];
                 $task_desc = $_REQUEST['task_desc'];
                 $task_time = $_REQUEST['task_time'];
-                $color = $_REQUEST['task_marker'];
+                $color = $_REQUEST['radio'];
                 $user_id = 1;
                 $sql = "INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values ('$task_name', '$task_desc', '$task_time', '$color', '$user_id');";
                 mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                echo "Запись добавлена";
             }
         ?>
     </div>
+    <script> //валидация формы
+        const form = document.getElementById('form');
+        const task_name = document.getElementById('task_name');
+        const task_time = document.getElementById('task_time');
+        var counter = 0;
+        
+        function validateForm() {
+            let tnameValue = document.forms["form"]["task_name"].value;
+            let time = document.forms["form"]["task_time"].value;
+            time = time.replace('T', ' ');
+
+            if (tnameValue === '') {
+                setErrorFor(task_name, 'Это обязательное поле');
+            } else {
+                setSuccessFor(task_name);
+            }
+
+            if(!isDateTime(time)) {
+                console.log("false");
+                setErrorFor(task_time, 'Неправильный формат времени');
+            } else {
+                setSuccessFor(task_time);
+                console.log("false");
+            }
+            if (tnameValue === '') {
+                return false;
+            }
+            if (!isDateTime(time)) {
+                return false;
+            }
+        }
+
+        function checkInputs() {
+            const tnameValue = task_name.value.trim();
+            let timeValue = task_time.value.trim();
+            console.log(timeValue);
+            timeValue = timeValue.replace('T', ' ');
+            console.log(timeValue);
+
+            if (tnameValue === '') {
+                setErrorFor(task_name, 'Это обязательное поле');
+            } else {
+                setSuccessFor(task_name);
+            }
+
+            if(!isDateTime(timeValue)) {
+                setErrorFor(task_time, 'Неправильный формат времени');
+            } else {
+                setSuccessFor(task_time);
+            }
+        }
+
+        function setErrorFor(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            formControl.className = 'form-control error';
+            small.innerText = message;
+        }
+        
+        function isDateTime(timeValue) {
+            return /^\d{4}\-\d{1,2}\-\d{1,2}\ \d{2}\:\d{2}$/.test(timeValue);
+        }
+        function setSuccessFor(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-control success';
+        }
+    </script>
 </body>
 </html>
