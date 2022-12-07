@@ -1,20 +1,3 @@
-/* variables: colors */
-
-:root {
-    --main: #FEFEFE;
-    --background: #F8F8F8;
-    --schedule_background: #FEFEFE;
-    --text: #3E3D40;
-    --light_text: #6D6C7C;
-    --modifier1: #735BF2;
-    --modifier2: #8EDEF8;
-    --modifier3: #FEDFA4;
-    --modifier1_light: #EEECFA;
-    --modifier2_light: #E5F9FD;
-    --modifier3_light: #FEF9EF;
-    --font-family: consolas;
-}
-
 /* main css */
 
 * {
@@ -28,6 +11,7 @@ html, body {
   font-family: var(--font-family);
   background: linear-gradient(to right, #faf6f3, #e8f5f9, #f5f7f9, #f5f4f7,  #f0eaea);
 }
+
 /* Вся страница */
 
 .main {
@@ -175,6 +159,14 @@ html, body {
   color: var(--light_text)
 }
 
+.mark {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 5;
+  margin-top: 2px;
+}
 .violet {
   background-color: var(--modifier1);
 }
@@ -184,7 +176,9 @@ html, body {
 .blue {
   background-color: var(--modifier2);
 }
-
+.red {
+  background-color: red;
+}
 /* The sidebar menu */
 .sidenav {
   height: 100%;
@@ -367,8 +361,10 @@ html, body {
     width: 100px;
     height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: end;
+    justify-content: start;
+    align-items: flex-end;
     padding: 5px;
     position: relative;
     cursor: pointer;

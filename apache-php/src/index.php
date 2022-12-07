@@ -69,6 +69,7 @@
                 }
                 else { //если запроса нет, тогда просмотр всех событий
                     $result = $mysqli->query("select * from user_table");
+                    
                 }
                 if ($result->num_rows > 0) {
                     foreach ($result as $good) {
@@ -76,9 +77,10 @@
                                 <div class="row">
                                     <div>
                                         <div class="marker '. $good['marker'] . '"></div>
-                                        <div class="square-time">'.
-                                            mb_substr($good['task_time'], 11, 5) //Добавить проверку на пустое число
-                                        .'</div>
+                                        <div class="square-time" id="'. $good['task_time'] .'">'.
+                                            // $good['task_time']
+                                            mb_substr($good['task_time'], 0, 16) //Добавить проверку на пустое число
+                                        . '</div>
                                     </div>
                                     <a class="square-delete" href="index.php?square='. $good['ID'] . '"> <i class="fa-solid fa-trash"></i> </a>
                                 </div>
