@@ -30,7 +30,7 @@
                         <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
                     </span>
                 </a>
-                <a href="catalogue.php">
+                <a href="#">
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>

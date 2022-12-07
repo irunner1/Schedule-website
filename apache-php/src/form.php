@@ -138,7 +138,7 @@
             <a href="session_status.php">
                 <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
+                    <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
             <a href="index.php">
@@ -147,21 +147,21 @@
                     <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
                 </span>
             </a>
-            <a href="catalogue.php">
+            <a href="#">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            <a href="admin.php">
+            <a href="form.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
-                    <i class="fa-solid fa-comment fa-stack-1x fa-inverse"></i>
+                    <i class="fa-solid fa-circle-plus fa-stack-1x fa-inverse"></i>
                 </span>
             </a>                
         </div>
         <div class="bottom">
-            <a href="form.php">
+            <a href="admin.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>

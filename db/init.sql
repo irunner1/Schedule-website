@@ -13,18 +13,10 @@ CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
-CREATE TABLE IF NOT EXISTS goods (
-    ID INT(10) NOT NULL AUTO_INCREMENT,
-    title VARCHAR(32) NOT NULL,
-    description VARCHAR(256) NOT NULL,
-    cost INT(6) NOT NULL,
-    PRIMARY KEY (ID)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
-
 CREATE TABLE IF NOT EXISTS user_table (
     ID INT(10) NOT NULL AUTO_INCREMENT,
-    task_time DATETIME NULL,
     task_name VARCHAR(15) NOT NULL,
+    task_time DATETIME NULL,
     task_desc VARCHAR(25) NULL,
     marker VARCHAR(7) NULL,
     user_num INT(10) NOT NULL,
@@ -46,12 +38,6 @@ insert into users (name, password) values
         'user',
         '$apr1$5i1mg3ur$obDXxC/JHQyptMKFiXZDO1' -- password
     );
-
-INSERT INTO goods (title, description, cost) VALUES 
-('Гвозди', 'Гвозди строительные 4x100 мм без покрытия 1 кг', 110),
-('Молоток', 'Слесарный молоток VIRA RAGE 600 г 903006', 549),
-('Ключ', 'Рожковый ключ 17x19мм Дело Техники 510197', 187);
-
 
 insert into user_table (task_name, task_desc, task_time, marker, user_num) values
 ('Сделать что то', 'дело 1', '2022-12-05 12:00:00', 'red', 1),
