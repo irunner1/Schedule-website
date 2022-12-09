@@ -1,6 +1,7 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
+    $_SESSION['user_id'] = 1;
 ?>
 <?php //Для удаления записи
   if (isset($_GET['square'])) {
@@ -64,12 +65,11 @@
                 $mysqli = openmysqli();
                 $mysqli->set_charset('utf8mb4');
                 if (isset($_GET['day'])) { //если запрос на конкретный день
-                    $result = $mysqli->query("select * from user_table where date(task_time) = '" . $_GET['year'] . "-" . $_GET['month'] . "-" . $_GET['day'] ."'" );
+                    $result = $mysqli->query("select * from user_table where date(task_time) = '" . $_GET['year'] . "-" . $_GET['month'] . "-" . $_GET['day'] ." and user_nun = " . $_SESSION['user_id'] ."'" );
                     echo '<div class="upcoming-subtitle"> Выбранная дата: ' . $_GET['day'] . " " . $_GET['month'] . " " . $_GET['year'] . '</div>';
                 }
                 else { //если запроса нет, тогда просмотр всех событий
-                    $result = $mysqli->query("select * from user_table");
-                    
+                    $result = $mysqli->query("select * from user_table where user_num = " . $_SESSION['user_id']);
                 }
                 if ($result->num_rows > 0) {
                     foreach ($result as $good) {

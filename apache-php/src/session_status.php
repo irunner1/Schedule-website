@@ -1,6 +1,6 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
 ?>
 <html lang="en">
 
@@ -18,6 +18,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
                 echo "Your session ID: " . session_id() . "<br>";
                 echo "You have visited this page: {$_SESSION['views']} times<br>";
                 echo "Color Theme: {$current_theme}<br>";
+                echo "ID: " . $_SESSION['user_id'] . "<br>";
+                echo "asd ". $_SESSION['login'];
             ?>
             <br>
             <div class="btn_link">

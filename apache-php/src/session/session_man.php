@@ -17,6 +17,9 @@
         case 'login':
             setLogin();
             break;
+        case 'user_id':
+            setUserId();
+            break;
         default:
             error();
             break;
@@ -34,5 +37,14 @@
             return;
         }
         $_SESSION['login'] = $login;
+    }
+
+    function setUserId() {
+        $userId = $_POST['user_id'] ?? null;
+        if (!$userId) {
+            error();
+            return;
+        }
+        $_SESSION['user_id'] = $userId;
     }
 ?>

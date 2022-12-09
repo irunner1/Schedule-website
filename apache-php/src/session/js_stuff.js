@@ -22,3 +22,7 @@ function changeTheme() {
 function setLogin() {
     ftch('action=login&login=' + document.querySelector('input').value)
 }
+
+function setUserId() {
+    ftch('action=user_id&user_id=1')
+}

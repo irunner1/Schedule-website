@@ -522,12 +522,12 @@ html, body {
 @media (max-width:375px) {
     .month-list>div{
       margin: 5px 0px;
-  }
+    }
 }
 @media (max-width:1070px) {
-  body {
-    margin-right: 20px;
-  }
+    body {
+      margin-right: 20px;
+    }
     .main{
       margin-top: 35px;
       flex-direction: column;
