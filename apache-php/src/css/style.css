@@ -28,6 +28,7 @@ html, body {
 }
 
 .upcoming-title {
+  color: var(--text);
   position: relative;
   left: 14%;
   top: 10%;
@@ -96,7 +97,7 @@ html, body {
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: white;
+	background: var(--schedule_background);
 }
 
 .upcoming-empty {
@@ -107,7 +108,7 @@ html, body {
 }
 
 .square {
-  background-color: white;
+  background-color: var(--schedule_background);
   width: 80%;
   height: 100px;
   padding: 10px;
@@ -228,8 +229,8 @@ html, body {
     flex-direction: column;
     padding: 0 5% 0px 0px;
     justify-content: end;
-    top: 0;
-    left: 5%;
+    top: 5rem;
+    left: 15%;
 }
 
 .title {
@@ -292,7 +293,7 @@ html, body {
 .calendar {
     height: 720px;
     width: max-content;
-    background-color: white;
+    background-color: var(--schedule_background);
     border-radius: 25px;
     overflow: hidden;
     padding: 30px 50px 0px 50px;
@@ -308,6 +309,7 @@ html, body {
 .calendar-body {
     border: 2px solid var(--modifier1_light);
     border-radius: 15px;
+    background: var(--calendar-background);
 }
 
 /* Месяц и год над календарем */
@@ -372,7 +374,7 @@ html, body {
 .calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    color: var(--color-txt);
+    color: var(--text);
     z-index: 1;
 }
 .calendar-days a {
@@ -398,7 +400,7 @@ html, body {
 }
 .calendar-days a:hover {
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-    background-color: #fbc7d4;
+    background-color: var(--modifier_hover);
     color: var(--dark-text);
 }
 .calendar-days a.current-date {
@@ -421,8 +423,7 @@ html, body {
     position: relative;
     left: 0;
     top: -150px;
-    background-color: #ebebeb;
-    color: var(--light_text);
+    color: var(--text);
     background-color: var(--modifier1_light);
     display: grid;
     z-index: 5;
@@ -502,7 +503,12 @@ html, body {
       opacity: 1;
     }
 }
-
+@media (max-width: 1600px) {
+  .contianer {
+    top: 0;
+    left: 5%;
+  }
+}
 @media (max-width: 1475px) {
   .square {
     width: 100%;

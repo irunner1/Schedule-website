@@ -1,0 +1,23 @@
+/* variables: colors */
+
+:root {
+    --main: #000000;
+    --background: #000000;
+    --schedule_background: #fefefe60;
+    --calendar-background: #fefefe60;
+    --text: #1b1b1b;
+    --light_text: #555561;
+    --modifier1: #3b2e7a;
+    --modifier2: #8EDEF8;
+    --modifier3: #FEDFA4;
+    --modifier1_light: #5a5475da;
+    --modifier2_light: #E5F9FD;
+    --modifier3_light: #FEF9EF;
+    --modifier_hover: #8a51a0;
+    --icon-hover: #2196F3;
+    --font-family: consolas;
+}
+
+html, body {
+    background: linear-gradient(to right, #0D324D, #7F5A83);
+}
