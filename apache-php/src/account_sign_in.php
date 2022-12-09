@@ -190,7 +190,7 @@
         </div>
     </div>
     <div class="container">
-        <form id="form" class="form" name="form" action="account.php" method="post" enctype="multipart/form-data" onsubmit="return validateFormInput()">
+        <form id="form" class="form" name="form" action="account_sign_in.php" method="post" enctype="multipart/form-data" onsubmit="return validateFormInput()">
             <div class="account-title"> Войти в аккаунт </div>
             <div class="account-row">
                 <div class="account-title"> Нет Аккаунта? </div>
@@ -218,30 +218,28 @@
                 $hash = password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
                 if ($result->num_rows > 0) {
                     foreach ($result as $good) {
-                        if ($_REQUEST['username'] != $good['name']) {
-                            $verify = password_verify($_REQUEST['password'], $good['password']);
-                            if ($verify) {
-                                $_SESSION['user_id'] = $good['ID'];
-                                ?>
-                                    <script type="text/javascript">
-                                        window.location.href = 'http://localhost:8082/index.php';
-                                    </script>
-                                <?php
-                            }
-                            else {
-                                ?>
-                                    <script type="text/javascript">
-                                        const password = document.getElementById('password');
-                                        setErrorFor(password, 'Неправильный пароль');
-                                        function setErrorFor(input, message) {
-                                            const formControl = input.parentElement;
-                                            const small = formControl.querySelector('small');
-                                            formControl.className = 'form-control error';
-                                            small.innerText = message;
-                                        }
-                                    </script>
-                                <?php
-                            }
+                        $verify = password_verify($_REQUEST['password'], $good['password']);
+                        if ($verify) {
+                            $_SESSION['user_id'] = $good['ID'];
+                            ?>
+                                <script type="text/javascript">
+                                    window.location.href = 'http://localhost:8082/index.php';
+                                </script>
+                            <?php
+                        }
+                        else {
+                            ?>
+                                <script type="text/javascript">
+                                    const password = document.getElementById('password');
+                                    setErrorFor(password, 'Неправильный пароль');
+                                    function setErrorFor(input, message) {
+                                        const formControl = input.parentElement;
+                                        const small = formControl.querySelector('small');
+                                        formControl.className = 'form-control error';
+                                        small.innerText = message;
+                                    }
+                                </script>
+                            <?php
                         }
                     }
                 }

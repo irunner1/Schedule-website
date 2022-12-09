@@ -55,7 +55,15 @@
                         <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>
-                <a href="account.php">
+                <?php
+                    if ($_SESSION['user_id'] == 0) {
+                        echo '<a href="account_sign_in.php">';
+                    }
+                    else {
+                        echo '<a href="account.php">';
+                    }
+                ?>
+                <!-- <a href="account.php"> -->
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
