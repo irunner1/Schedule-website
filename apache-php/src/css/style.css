@@ -159,6 +159,10 @@ html, body {
   color: var(--light_text)
 }
 
+.fa-trash:hover {
+  color: var(--icon-hover);
+}
+
 .mark {
   width: 10px;
   height: 10px;
@@ -218,7 +222,6 @@ html, body {
 /* Правая часть страницы */
 .contianer {
     right: 0;
-    /* width: 30%; */
     height: max-content;
     position: relative;
     display: flex;
@@ -227,22 +230,31 @@ html, body {
     justify-content: end;
     top: 0;
     left: 5%;
-    /* height: 100%; */
 }
 
 .title {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.calendar-title {
-    width: 50px;
+
+.calendar-title, .calendar-title-refresh {
     font-size: 20px;
     font-family: var(--font-family);
     padding: 0 0 10px 20px;
     color: var(--text);
     font-weight: bold;
+}
+.calendar-title {
+  width: 50px;
+}
+.calendar-title-refresh {
+  text-decoration: none;
+  cursor: pointer;
+}
+.calendar-title-refresh:hover {
+  color: var(--modifier1);
 }
 
 /* Время над календарем */
@@ -517,6 +529,7 @@ html, body {
     margin-right: 20px;
   }
     .main{
+      margin-top: 35px;
       flex-direction: column;
       padding-right: 0;
     }

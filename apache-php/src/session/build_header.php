@@ -18,6 +18,4 @@
         require $_SERVER['DOCUMENT_ROOT'] . '/css/lightTheme.css';
     }
     echo ' </style>';
-    
-    // require $_SERVER['DOCUMENT_ROOT'] . '/session/header.php';
 ?>

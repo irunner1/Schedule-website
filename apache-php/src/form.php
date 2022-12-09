@@ -161,7 +161,7 @@
             </a>                
         </div>
         <div class="bottom">
-            <a href="admin.php">
+            <a href="settings.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>

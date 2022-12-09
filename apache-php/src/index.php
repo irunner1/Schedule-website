@@ -44,7 +44,7 @@
                 </a>                
             </div>
             <div class="bottom">
-                <a href="admin.php">
+                <a href="settings.php">
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
@@ -96,7 +96,7 @@
         <div class="contianer">
             <div class="title">
                 <div class="calendar-title"> Календарь </div>
-                <div class="calendar-title-refresh"> Показать все события </div>
+                <a href="index.php" class="calendar-title-refresh"> Показать все события </a>
             </div>
 
             <div class="calendar">
@@ -137,20 +137,6 @@
                     </div>
                 </div>
                 <div class="calendar-footer"></div>
-                <?php
-                //     require_once '_helper.php';
-                //     $mysqli = openmysqli();
-                //     $mysqli->set_charset('utf8mb4');
-                //     $result = $mysqli->query("select * from user_table");
-                //     if ($result->num_rows > 0) {
-                //         foreach ($result as $good) {
-                //             echo '<div class="square">
-                //                     <div class="marker '. $good['marker'] . '"></div>
-                //                 </div>';
-                //         }
-                //     }
-                //     else echo '<div class="upcoming-empty"> Предстоящих событий нет </div>'; 
-                // ?>
                 <div class="month-list"></div>
             </div>
         </div>
