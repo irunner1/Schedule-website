@@ -23,7 +23,7 @@ html, body {
 
 /* Левая часть страницы */
 .upcoming {
-  width: 50%;
+  width: 30%;
   /* padding: 10% 20% 0 0; */
 }
 
@@ -108,7 +108,7 @@ html, body {
 
 .square {
   background-color: white;
-  width: 55%;
+  width: 80%;
   height: 100px;
   padding: 10px;
   margin: 10px;
@@ -217,7 +217,8 @@ html, body {
 
 /* Правая часть страницы */
 .contianer {
-    width: 30%;
+    right: 0;
+    /* width: 30%; */
     height: max-content;
     position: relative;
     display: flex;
@@ -225,10 +226,16 @@ html, body {
     padding: 0 5% 0px 0px;
     justify-content: end;
     top: 0;
-    right: 10%;
-    height: 100%;
+    left: 5%;
+    /* height: 100%; */
 }
 
+.title {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .calendar-title {
     width: 50px;
     font-size: 20px;
@@ -483,12 +490,32 @@ html, body {
     }
 }
 
+@media (max-width: 1475px) {
+  .square {
+    width: 100%;
+    height: 150px;
+  }
+  .square-time {
+    width: 100px;
+    height: 20px;
+    left: 1rem;
+  }
+  .square-title {
+    padding-top: 20px;
+  }
+  .upcoming-title {
+    left: 20%
+  }
+}
 @media (max-width:375px) {
     .month-list>div{
       margin: 5px 0px;
   }
 }
 @media (max-width:1070px) {
+  body {
+    margin-right: 20px;
+  }
     .main{
       flex-direction: column;
       padding-right: 0;
@@ -504,15 +531,33 @@ html, body {
       left: 2%;
       right: 0;
       width: 100%;
+      padding-top: 15px;
     }
     .upcoming {
       width: 100%;
+      margin-right: 10px;
     }
     .square {
+      height: 100px;
       left: 2%;
-      width: 94%;
+      width: 95%;
+      margin: 0;
+      margin-top: 10px;
+      padding-right: 5px;
+    }
+    .square-title {
+      padding-top: 0;
+    }
+    .square-time {
+      width: 150px;
+      left: 2rem;
     }
     .upcoming-title {
       left: 40px;
+      width: 250px;
+    }
+    .upcoming-subtitle {
+      left: 40px;
+      width: 250px;
     }
 }

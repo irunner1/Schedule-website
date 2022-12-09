@@ -78,7 +78,6 @@
                                     <div>
                                         <div class="marker '. $good['marker'] . '"></div>
                                         <div class="square-time" id="'. $good['task_time'] .'">'.
-                                            // $good['task_time']
                                             mb_substr($good['task_time'], 0, 16) //Добавить проверку на пустое число
                                         . '</div>
                                     </div>
@@ -95,7 +94,11 @@
         </div>
 
         <div class="contianer">
-            <div class="calendar-title"> Календарь </div>
+            <div class="title">
+                <div class="calendar-title"> Календарь </div>
+                <div class="calendar-title-refresh"> Показать все события </div>
+            </div>
+
             <div class="calendar">
                 <div class="date-time-format">
                     <div class="day-text-format"> TODAY </div>

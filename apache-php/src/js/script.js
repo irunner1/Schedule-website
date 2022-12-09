@@ -63,11 +63,11 @@ const generateCalendar = (month, year) => {
       if (i >= first_day.getDay()) {
         day.innerHTML = i - first_day.getDay() + 1;
         day.href = "index.php?day=" + (i - first_day.getDay() + 1) + "&month=" + (month + 1) + "&year=" + year;
-        
+        console.log(mark_day);
         for (var j = 0; j < mark_day.length; j++) { //добавление маркеров на календарь
             let date = mark_day[j].id;
-
-            if (date.substring(0,4).localeCompare(year) === 0 && date.substring(5,7).localeCompare(month + 1) === 0 && date.substring(9,10).localeCompare(i - first_day.getDay() + 1 + 1) === 0) {
+            console.log(date);
+            if (date.substring(0,4).localeCompare(year) === 0 && date.substring(5,7).localeCompare(month + 1) === 0 && date.substring(9,10).localeCompare(i - first_day.getDay() + 1) === 0) {
                 let mark = document.createElement('div');
                 mark.classList.add('mark');
                 mark.classList.add(marker[j].classList[1]);
