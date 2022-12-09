@@ -9,7 +9,7 @@ SET NAMES utf8mb4;
 CREATE TABLE IF NOT EXISTS users (
     ID INT(11) NOT NULL AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
-    password VARCHAR(40) NOT NULL,
+    password VARCHAR(75) NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
@@ -21,22 +21,21 @@ CREATE TABLE IF NOT EXISTS user_table (
     marker VARCHAR(7) NULL,
     user_num INT(10) NOT NULL,
     PRIMARY KEY (ID)
-    -- FOREIGN KEY (user_num)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4;
 
 
 insert into users (name, password) values
     (
         'admin',
-        '$apr1$uqao79dh$fmZ6ZI/p1XTy0e5.PYSxH0' -- admin1
+        '$2y$10$Fs8elYYdmdjSw1N9TxxOn.yteCrnUuoO6rNlIDzwl1Rsj9Ea75iee' -- admin1
     ),
     (
         'irunner',
-        '$apr1$iy5n4fzs$2yDfXiSZmYO29Dz4S/D6H1' -- usert
+        '$2y$10$DO0u.khvkt9J8yYMa1i8kuAXkfPw6r3Wh8dYRgFr9p5xugnMTwAx6' -- usert
     ),
     (
         'user',
-        '$apr1$5i1mg3ur$obDXxC/JHQyptMKFiXZDO1' -- password
+        '$2y$10$xdpVj5VEC7k/FQlXbSk88.UKLXTpn27.Ywyidyf.ZyiabnJ5olTci' -- password
     );
 
 insert into user_table (task_name, task_desc, task_time, marker, user_num) values

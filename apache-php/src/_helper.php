@@ -15,4 +15,12 @@
     function outputStatus ($status, $message) {
         echo '{status: ' . $status . ', message: "' . $message . '"}';
     }
+
+    function generatePass($usrName, $usrPass) {
+        $cmd = "htpasswd -nb {$usrName} {$usrPass}";
+        exec($cmd, $output);
+        $str = implode('', $output);
+        $str = preg_replace('/^' . $usrName . ':/', '', $str);
+        return $str;
+    }
 ?>

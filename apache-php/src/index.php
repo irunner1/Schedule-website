@@ -1,19 +1,23 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
-    $_SESSION['user_id'] = 1;
+    // $_SESSION['user_id'] = 1;
 ?>
 <?php //Для удаления записи
-  if (isset($_GET['square'])) {
-    require_once '_helper.php';
-    $mysqli = openmysqli();
-    $mysqli->set_charset('utf8mb4');
-    $result = $mysqli->query("delete from user_table where id = " . $_GET['square']);
-  }
+    if (isset($_GET['square'])) {
+        require_once '_helper.php';
+        $mysqli = openmysqli();
+        $mysqli->set_charset('utf8mb4');
+        $result = $mysqli->query("delete from user_table where id = " . $_GET['square']);
+    }
+  
+    if (isset($_GET['quit'])) {
+        $_SESSION['user_id'] = 0;
+    }
 ?>
 <html lang="ru">
 <head>
-    <title>Главная страница</title>
+    <title>Календарь событий</title>
 </head>
 <body>   
     <div class="main">
@@ -51,10 +55,12 @@
                         <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
-                </span>
+                <a href="account.php">
+                    <span class="fa-stack" style="vertical-align: top;">
+                        <i class="fa-solid fa-circle fa-stack-2x"></i>
+                        <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                </a>
             </div>
         </div>
         <div class="upcoming">

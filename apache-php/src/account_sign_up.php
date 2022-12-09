@@ -4,10 +4,9 @@
 ?>
 <html lang="ru">
 <head>
-    <title>Добавление события</title>
+    <title>Вход</title>
     <style>
         body {
-            background-color: #59a0b6;
             font-family: 'Open Sans', sans-serif;
             display: flex;
             align-items: center;
@@ -63,10 +62,6 @@
             border-color: #e74c3c;
         }
 
-        .margin {
-            margin-left: 20px;
-        }
-
         .form-control i {
             visibility: hidden;
             position: absolute;
@@ -117,7 +112,7 @@
             font-family: inherit;
             font-size: 16px;
             padding: 10px;
-            margin-top: 20px;
+            /* margin-top: 20px; */
             width: 100%;
             cursor: pointer;
             transition: background-color 0.5s ease 0s;
@@ -130,6 +125,27 @@
         .form-control.error input{
             animation: anim .5s;
         }
+        .a {
+            width: 50px;
+            font-style: 15px;
+        }
+        .account-title {
+            padding: 10px;
+            font-family: var(--font-family);
+            font-size: 18px;
+            color: var(--text);
+        }
+        .account-row {
+            display: flex;
+            flex-direction: row;
+        }
+        .account-link {
+            padding: 12px 10px 10px 10px;
+            font-family: var(--font-family);
+            font-size: 15px;
+            color: var(--text);
+        }
+       
     </style>
 </head>
 <body>
@@ -167,97 +183,74 @@
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            <a href="account_sign_in.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
+            <span class="fa-stack" style="vertical-align: top;">
+                <i class="fa-solid fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+            </span>
         </div>
     </div>
     <div class="container">
-        <form id="form" class="form" name="form" action="form.php" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+        <form id="form" class="form" name="form" action="account.php" method="post" enctype="multipart/form-data" onsubmit="return validateFormInput()">
+            <div class="account-title"> Зарегистрироваться </div>
+            <div class="account-row">
+                <div class="account-title"> Уже есть аккаунт? </div>
+                <a href="account_sigh_in.php" class="account-link"> Войти </a>
+            </div>
             <div class="form-control">
-                <label for="task-name" class="margin">Название задачи</label>
-                <input type="text" id="task_name" name="task_name" />
+                <label for="username" class="account-title"> Имя пользователя </label>
+                <input type="text" id="username" name="username" />
                 <small>Error message</small>
             </div>
             <div class="form-control">
-                <label for="task_desc" class="margin">Описание задачи</label>
-                <input type="text" id="task_desc" name="task_desc"/>
+                <label for="password" class="account-title"> Пароль </label>
+                <input type="password" id="password" name="password"/>
                 <small>Error message</small>
             </div>
-            <div class="form-control">
-                <label for="task_time" class="margin">Время</label>
-                <input type="datetime-local" placeholder="2022-12-05 17:00" id="task_time" name="task_time" />
-                <small>Error message</small>
-            </div>
-            <div class="form-control">
-                <label for="task_marker" class="margin">Цвет маркера</label>
-                <br>
-                <label class="con"> Желтый
-                    <input type="radio" checked="checked" name="radio" id="radio" class="radio" value="Yellow">
-                    <span class="checkmark"></span>
-                </label>
-                <br>
-                <label class="con"> Красный
-                    <input type="radio" name="radio" class="radio" value="Red" id="radio">
-                    <span class="checkmark"></span>
-                </label>
-                <br>
-                <label class="con"> Синий
-                    <input type="radio" name="radio" class="radio" value="Blue" id="radio">
-                    <span class="checkmark"></span>
-                </label>
-            </div>
-            <p><button type="submit" id="submit">Отправить</button></p>
+
+            <p><button type="submit" id="submit">Зарегистрироваться</button></p>
         </form>
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
-            if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['radio'])) {
-                $task_name = $_REQUEST['task_name'];
-                $task_desc = $_REQUEST['task_desc'];
-                $task_time = $_REQUEST['task_time'];
-                $color = $_REQUEST['radio'];
-                $user_id = $_SESSION['user_id'];
-                $sql = "INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values ('$task_name', '$task_desc', '$task_time', '$color', '$user_id');";
-                mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                echo "Запись добавлена";
+            if (isset($_REQUEST['password']) && isset($_REQUEST['username'])) {
+                $username = $_REQUEST['username'];
+                $hash = password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
+                $sql = "INSERT INTO users (name, password) values ('$username', '$hash');";
+                ?>
+                    <script type="text/javascript">
+                        window.location.href = 'http://localhost:8082/index.php';
+                    </script>
+                <?php
             }
         ?>
     </div>
     <script> //валидация формы
         const form = document.getElementById('form');
-        const task_name = document.getElementById('task_name');
-        const task_time = document.getElementById('task_time');
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
         var counter = 0;
         
-        function validateForm() {
-            let tnameValue = document.forms["form"]["task_name"].value;
-            let time = document.forms["form"]["task_time"].value;
-            time = time.replace('T', ' ');
+        function validateFormInput() {
+            let name = document.forms["form"]["username"].value;
+            let pass = document.forms["form"]["password"].value;
 
-            if (tnameValue === '') {
-                setErrorFor(task_name, 'Это обязательное поле');
+            if (name === '') {
+                setErrorFor(username, 'Это обязательное поле');
             }
             else {
-                setSuccessFor(task_name);
+                setSuccessFor(username);
             }
-
-            if(!isDateTime(time)) {
-                console.log("false");
-                setErrorFor(task_time, 'Неправильный формат времени');
-            } 
+            if (pass === '') {
+                setErrorFor(password, 'Это обязательное поле');
+            }
             else {
-                setSuccessFor(task_time);
-                console.log("false");
+                setSuccessFor(password);
             }
-            if (tnameValue === '') {
+            if (name === '') {
                 return false;
             }
-            if (!isDateTime(time)) {
+            if (pass === '') {
                 return false;
-            }
+            }     
         }
 
         function setErrorFor(input, message) {
@@ -267,9 +260,6 @@
             small.innerText = message;
         }
         
-        function isDateTime(timeValue) {
-            return /^\d{4}\-\d{1,2}\-\d{1,2}\ \d{2}\:\d{2}$/.test(timeValue);
-        }
         function setSuccessFor(input) {
             const formControl = input.parentElement;
             formControl.className = 'form-control success';
