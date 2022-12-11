@@ -21,3 +21,7 @@
 html, body {
     background: linear-gradient(to right, #0D324D, #7F5A83);
 }
+
+.upcoming-title, .calendar-title, .calendar-title-refresh {
+    color: #d5d5d5;
+}

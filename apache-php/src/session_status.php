@@ -6,6 +6,20 @@
 
 <head>
     <title>Статус сессии</title>
+    <style> 
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .block {
+            overflow: hidden;
+            width: 500px;
+            max-width: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,14 +33,13 @@
                 echo "You have visited this page: {$_SESSION['views']} times<br>";
                 echo "Color Theme: {$current_theme}<br>";
                 echo "ID: " . $_SESSION['user_id'] . "<br>";
-                echo "asd ". $_SESSION['login'];
+                echo "name: ". $_SESSION['login'];
             ?>
             <br>
-            <div class="btn_link">
-                <a class="link" href="index.php">На главную</a>
+            <div>
+                <a class="main-button" href="index.php">На главную</a>
             </div>
         </div>
     </main>
 </body>
-
 </html>

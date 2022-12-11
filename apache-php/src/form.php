@@ -135,7 +135,7 @@
 <body>
     <div class="sidenav">
         <div class="top">
-            <a href="session_status.php">
+            <a href="main.php">
                 <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
@@ -145,12 +145,6 @@
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
-                </span>
-            </a>
-            <a href="#">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
             <a href="form.php">
@@ -167,7 +161,14 @@
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            <a href="account_sign_in.php">
+            <?php
+                if ($_SESSION['user_id'] == 0) {
+                    echo '<a href="account_sign_in.php">';
+                }
+                else {
+                    echo '<a href="account.php">';
+                }
+            ?>
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>

@@ -66,12 +66,16 @@
         .link {
             color: transparent;
         }
+        .f {
+            display: flex;
+            flex-direction: row;
+        }
     </style>
 </head>
 <body>
     <div class="sidenav">
         <div class="top">
-            <a href="session_status.php">
+            <a href="main.php">
                 <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
@@ -83,12 +87,6 @@
                     <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
                 </span>
             </a>
-            <a href="#">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
             <a href="form.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
@@ -97,31 +95,49 @@
             </a>                
         </div>
         <div class="bottom">
-            <a href="admin.php">
+            <a href="settings.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            <span class="fa-stack" style="vertical-align: top;">
-                <i class="fa-solid fa-circle fa-stack-2x"></i>
-                <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
-            </span>
+            <?php
+                if ($_SESSION['user_id'] == 0) {
+                    echo '<a href="account_sign_in.php">';
+                }
+                else {
+                    echo '<a href="account.php">';
+                }
+            ?>
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
         </div>
     </div>
     <div class="container">
         <div class="inner">
-            <?php 
-                $conn = new mysqli('mysql', 'user', 'password', 'appDB');
-                $mysqli = openmysqli();
-                $mysqli->set_charset('utf8mb4');
-                $result = $mysqli->query("select name from users where id=" . $_SESSION['user_id']);
-                if ($result->num_rows > 0) {
-                    foreach ($result as $good) {
-                        echo '<div class="settings-title">' .  $good['name'] . '</div>';
+            <div class="f">
+                <div class="settings-title"> username: </div>
+                <?php
+                    $conn = new mysqli('mysql', 'user', 'password', 'appDB');
+                    $mysqli = openmysqli();
+                    $mysqli->set_charset('utf8mb4');
+                    $result = $mysqli->query("select name from users where id=" . $_SESSION['user_id']);
+                    if ($result->num_rows > 0) {
+                        foreach ($result as $good) {
+                            echo '<div class="settings-title">' .  $good['name'] . '</div>';
+                        }
                     }
-                }
-            ?>
+                ?>
+            </div>
+            <div class="f">
+                <div class="settings-title"> name: </div>
+                <?php 
+                    echo '<div class="settings-title">' . $_SESSION['login'] . '</div>';
+                ?>
+            </div>
             <a class="button kl" href='index.php?quit=true'>Выйти</a>
         </div>
     </div>

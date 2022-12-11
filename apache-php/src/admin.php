@@ -5,52 +5,43 @@
 <html lang="ru">
 <head>
     <title>Панель админа</title>
+    <style> 
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .block {
+            overflow: hidden;
+            width: 500px;
+            max-width: 100%;
+        }
+        .button {
+            background-color: #735BF2;
+            border: 2px solid #735BF2;
+            border-radius: 8px;
+            color: #fff;
+            display: block;
+            font-family: inherit;
+            font-size: 18px;
+            padding: 10px;
+            margin-top: 5px;
+            width: 50%;
+            cursor: pointer;
+            transition: background-color 0.5s ease 0s;
+            text-align: center;
+            text-decoration: none;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 <body>
-    <div class="sidenav">
-        <div class="top">
-
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-flag fa-stack-1x fa-inverse"></i>
-                </span>
-            </a> 
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
-                </span>
-            </a> 
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-regular fa-magnifying-glass fa-stack-1x fa-inverse"></i>
-                </span>
-            </a> 
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
-                    <i class="fa-regular fa-comment fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
-        </div>
-        <div class="bottom">
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-regular fa-gear fa-stack-1x fa-inverse"></i>
-                </span>
-            </a> 
-            <a href="index.php">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-regular fa-user fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
-        </div>
-    </div>
-        <div class="title">
+    <div class="block">
+    
+        <div class="center">
             <p class="title_text">Список пользователей</p>
         </div>
         <?php
@@ -77,11 +68,13 @@
             ?>
         </table>
         <br>
-        <div class="btn_link">
-            <a class="link" href="index.php">На главную</a>
+        <div class="center">
+            <a class="button" href="index.php">На главную</a>
         </div>
-        <div>
-            <?php $mysqli->close(); ?>
-        </div>
+    </div>
+
+    <div>
+        <?php $mysqli->close(); ?>
+    </div>
 </body>
 </html>

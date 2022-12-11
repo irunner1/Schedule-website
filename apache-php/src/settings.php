@@ -67,7 +67,7 @@
 <body>
     <div class="sidenav">
         <div class="top">
-            <a href="session_status.php">
+            <a href="main.php">
                 <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
@@ -79,12 +79,6 @@
                     <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
                 </span>
             </a>
-            <a href="#">
-                <span class="fa-stack" style="vertical-align: top;">
-                    <i class="fa-solid fa-circle fa-stack-2x"></i>
-                    <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
-                </span>
-            </a>
             <a href="form.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x icon-back"></i>
@@ -93,16 +87,25 @@
             </a>                
         </div>
         <div class="bottom">
-            <a href="admin.php">
+            <a href="settings.php">
                 <span class="fa-stack" style="vertical-align: top;">
                     <i class="fa-solid fa-circle fa-stack-2x"></i>
                     <i class="fa-solid fa-gear fa-stack-1x fa-inverse"></i>
                 </span>
             </a>
-            <span class="fa-stack" style="vertical-align: top;">
-                <i class="fa-solid fa-circle fa-stack-2x"></i>
-                <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
-            </span>
+            <?php
+                if ($_SESSION['user_id'] == 0) {
+                    echo '<a href="account_sign_in.php">';
+                }
+                else {
+                    echo '<a href="account.php">';
+                }
+            ?>
+                <span class="fa-stack" style="vertical-align: top;">
+                    <i class="fa-solid fa-circle fa-stack-2x"></i>
+                    <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
         </div>
     </div>
     <div class="container">
@@ -119,6 +122,7 @@
             <div class="settings-title">Сменить тему</div>
             <button class="button" onclick="changeTheme()"> Сменить тему </button>
             <a href="admin.php" class="link"> Админ Панель </a>
+            <a href="session_status.php" class="link"> Настройки сессий </a>
         </div>
         
     </div>

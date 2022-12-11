@@ -4,7 +4,7 @@
         $_SESSION["theme"] = 0;
         $_SESSION["views"] = 0;
         $_SESSION["login"] = ' ';
-        $_SESSION["user_id"] = ' ';
+        $_SESSION["user_id"] = 0;
     }
 
     function openmysqli(): mysqli {

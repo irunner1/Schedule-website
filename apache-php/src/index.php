@@ -1,7 +1,6 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT'] . '/_helper.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/session/build_header.php';
-    // $_SESSION['user_id'] = 1;
 ?>
 <?php //Для удаления записи
     if (isset($_GET['square'])) {
@@ -23,7 +22,7 @@
     <div class="main">
         <div class="sidenav">
             <div class="top">
-                <a href="session_status.php">
+                <a href="main.php">
                     <span class="fa-stack" style="vertical-align: top; margin-top: 40px;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-house fa-stack-1x fa-inverse"></i>
@@ -33,12 +32,6 @@
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-calendar fa-stack-1x fa-lg fa-inverse"></i>
-                    </span>
-                </a>
-                <a href="#">
-                    <span class="fa-stack" style="vertical-align: top;">
-                        <i class="fa-solid fa-circle fa-stack-2x"></i>
-                        <i class="fa-solid fa-magnifying-glass fa-stack-1x fa-inverse"></i>
                     </span>
                 </a>
                 <a href="form.php">
@@ -63,7 +56,6 @@
                         echo '<a href="account.php">';
                     }
                 ?>
-                <!-- <a href="account.php"> -->
                     <span class="fa-stack" style="vertical-align: top;">
                         <i class="fa-solid fa-circle fa-stack-2x"></i>
                         <i class="fa-solid fa-user fa-stack-1x fa-inverse"></i>
@@ -92,7 +84,7 @@
                                     <div>
                                         <div class="marker '. $good['marker'] . '"></div>
                                         <div class="square-time" id="'. $good['task_time'] .'">'.
-                                            mb_substr($good['task_time'], 0, 16) //Добавить проверку на пустое число
+                                            mb_substr($good['task_time'], 0, 16)
                                         . '</div>
                                     </div>
                                     <a class="square-delete" href="index.php?square='. $good['ID'] . '"> <i class="fa-solid fa-trash"></i> </a>
