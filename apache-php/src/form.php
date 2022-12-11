@@ -211,7 +211,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            <p><button type="submit" id="submit">Отправить</button></p>
+            <p><button type="submit" id="submit"> Добавить </button></p>
         </form>
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
