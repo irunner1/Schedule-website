@@ -75,7 +75,6 @@ const generateCalendar = (month, year) => {
                 sub_day = date.substring(8,10);
             }
             if (date.substring(0,4).localeCompare(year) === 0 && date.substring(5,7).localeCompare(month + 1) === 0 && sub_day.localeCompare(i - first_day.getDay() + 1) === 0) {
-                console.log(i - first_day.getDay() + 1);
                 let mark = document.createElement('div');
                 mark.classList.add('mark');
                 mark.classList.add(marker[j].classList[1]);

@@ -216,14 +216,16 @@
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
             if (isset($_REQUEST['task_name']) && isset($_REQUEST['task_desc']) && isset($_REQUEST['task_time']) && isset($_REQUEST['radio'])) {
-                $task_name = $_REQUEST['task_name'];
-                $task_desc = $_REQUEST['task_desc'];
-                $task_time = $_REQUEST['task_time'];
-                $color = $_REQUEST['radio'];
-                $user_id = $_SESSION['user_id'];
-                $sql = "INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values ('$task_name', '$task_desc', '$task_time', '$color', '$user_id');";
-                mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                echo "Запись добавлена";
+                if ($_SESSION['user_id'] != 0) {
+                    $task_name = $_REQUEST['task_name'];
+                    $task_desc = $_REQUEST['task_desc'];
+                    $task_time = $_REQUEST['task_time'];
+                    $color = $_REQUEST['radio'];
+                    $user_id = $_SESSION['user_id'];
+                    $sql = "INSERT INTO user_table (task_name, task_desc, task_time, marker, user_num) values ('$task_name', '$task_desc', '$task_time', '$color', '$user_id');";
+                    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                    echo "Запись добавлена";
+                }
             }
         ?>
     </div>
