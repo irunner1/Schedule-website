@@ -193,7 +193,7 @@
         </div>
     </div>
     <div class="container">
-        <form id="form" class="form" name="form" action="account.php" method="post" enctype="multipart/form-data" onsubmit="return validateFormInput()">
+        <form id="form" class="form" name="form" action="account_sign_up.php" method="post" enctype="multipart/form-data" onsubmit="return validateFormInput()">
             <div class="account-title"> Зарегистрироваться </div>
             <div class="account-row">
                 <div class="account-title"> Уже есть аккаунт? </div>
@@ -214,10 +214,17 @@
         </form>
         <?php
             $conn = new mysqli('mysql', 'user', 'password', 'appDB');
+            $mysqli = openmysqli();
+            $mysqli->set_charset('utf8mb4');
+
             if (isset($_REQUEST['password']) && isset($_REQUEST['username'])) {
                 $username = $_REQUEST['username'];
                 $hash = password_hash($_REQUEST['password'], PASSWORD_DEFAULT);
-                $sql = "INSERT INTO users (name, password) values ('$username', '$hash');";
+                $mysqli->query("INSERT INTO users (name, password) values ('$username', '$hash');");
+                $result = $mysqli->query("select * from users where name = '$username'");
+                foreach ($result as $good) {
+                    $_SESSION['user_id'] = $good['ID'];
+                }
                 ?>
                     <script type="text/javascript">
                         window.location.href = 'http://localhost:8082/index.php';
